@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://[::1]/Alaminhossain/gatewayitProject/disharifashion/';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
