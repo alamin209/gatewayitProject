@@ -35,14 +35,10 @@ class PdfMaker extends CI_Controller
 //        if ($this->session->userdata('userType') == "Admin") {
 
          $this->load->model('Admin_model');
-//            $this->data['orders'] = $this->Admin_model->viewOrderInfoByOrderId($orderId);
-//            $html = $this->load->view('admin/invoicePdf', $this->data, true);
-        $this->data1['shiping'] = $this->Admin_model->viewOrderInfoByshipping($orderId);
-        print_r( $this->data1['shiping']);
-        $html1 = $this->load->view('admin/shippingPdf', $this->data1, true);
+            $this->data['orders'] = $this->Admin_model->viewOrderInfoByOrderId($orderId);
+            $html = $this->load->view('admin/invoicePdf', $this->data, true);
         $filename = 'invoiceGateway';
-        $filename1='invoiceGateway';
-        $this->pdfgenerator->generate($html1, $filename1, true, 'A4', 'portrait');
+        $this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
 
 
 

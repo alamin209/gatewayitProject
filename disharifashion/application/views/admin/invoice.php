@@ -193,7 +193,7 @@
                                         <table class="table table-striped table-bordered table-hover roni" border="1" width="100%" id="invoicetoptables" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th class="image">Image</th>
+<!--                                                    <th class="image">Image</th>-->
                                                     <th class="name">Product Name</th>
                                                     <th class="quantity">Quantity</th>
                                                     <th class="price">Unit Price</th>
@@ -206,17 +206,17 @@
                                                     foreach($order_details_info as $v_order_info){
                                                 ?>
                                                 <tr id="prod_info">
-                                                    <td class="image">
-                                                        <a href="#">
-                                                            <img src="<?php echo base_url().$v_order_info->product_image;?>"  />
-
-                                                        </a>
-                                                    </td>
+<!--                                                    <td class="image">-->
+<!--                                                        <a href="#">-->
+<!--                                                            <img src="--><?php //echo base_url().$v_order_info->product_image;?><!--"  />-->
+<!---->
+<!--                                                        </a>-->
+<!--                                                    </td>-->
                                                     <td class="name">
                                                         <a href="#"><?php echo $v_order_info->product_name;?></a>
                                                       <div> </div>
                                                     </td>
-                                                    
+
                                                     <td class="quantity">
                                                        <?php echo $v_order_info->product_sales_quantity;?>
                                                     </td>
@@ -228,10 +228,10 @@
                                                     </td>
                                                 </tr>
                                                 <?php
-                                                
+
                                                     $total = $total+$v_order_info->product_sales_quantity * $v_order_info->product_price;
-                                                
-                                                    } 
+
+                                                    }
                                                 ?>
                                             </tbody>
                                         </table>
@@ -304,7 +304,7 @@
                                 </tr>
                             </tbody>
                        </table>
-                        
+
                     </div>
                 </div>
             </div>                       

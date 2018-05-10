@@ -235,7 +235,6 @@ class Admin_model extends CI_Model
     {
 
         $query = $this->db->select('*')->from('tbl_customer')->where('customer_id', $customer_id)->get()->row();
-
         return $query;
 
     }
@@ -319,12 +318,11 @@ class Admin_model extends CI_Model
 
 //Admin_model
 
-///////// daioly Report
+///////// daioly Report /////////////////////////////////////
 
     public function getlldailyReport()
     {
         $this->db->select('*');
-//    $this->db->join('tbl_order`', 'tbl_order_details.order_id= tbl_order.order_id', 'left');
         $this->db->from('tbl_order');
         $query = $this->db->get();
         return $query->result();
@@ -332,7 +330,6 @@ class Admin_model extends CI_Model
 
     }
     //////////////// search order by id //////////////////////////////
-    ///
 
     public  function viewAllReportByorder($orderID)
     {
@@ -343,6 +340,7 @@ class Admin_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    //////////////// searech order by date ///////////////////////////////////////////
     public  function viewAllReportBydate($startdate, $enddate)
     {
 
@@ -351,7 +349,6 @@ class Admin_model extends CI_Model
         $this->db->from('tbl_order');
         $query = $this->db->get();
         return $query->result();
-
 
 
     }
