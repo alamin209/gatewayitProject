@@ -49,7 +49,7 @@
 								<td><?= $meal->morning;?></td>
 								<td><?= $meal->lunch;?></td>
 								<td><?= $meal->dinner;?></td>
-								<td>333</td>
+								<td><?= $meal->total;?></td>
 							</tr>
 						<?php } ?>
 					</tbody>

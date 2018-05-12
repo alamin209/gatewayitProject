@@ -63,18 +63,17 @@
 										<!-- <a class="blue" data-rel="tooltip" data-placement="bottom" title="Change Password" href="<?php echo base_url()."member/password_change/".$member->id; ?>">
 											<i class="ace-icon fa fa-key bigger-120"></i>
 										</a> -->
-<!--										<a class="blue student_details" title="Details"   data-panel-id="--><?php //echo $member->mem_id; ?><!--"   onclick="selectid2(this)"  href="#" >-->
-<!--											<i class="ace-icon fa fa-file bigger-120"></i>-->
-<!--										</a>-->
-                                        <button  class="btn btn-primary btn-xs"  data-panel-id="<?php echo  $member->mem_id; ?>" onclick="selectid2(this)">
+
+										<!-- <button  class="btn btn-primary btn-xs"  data-panel-id="<?php echo  $member->mem_id; ?>" onclick="selectid2(this)">
                                             <i class="ace-icon fa fa-file bigger-100"></i>
-                                        </button>
+                                        </button> -->
 
-
-
+										<a class="blue student_details" title="Details" data-panel-id="<?php echo  $member->mem_id; ?>" onclick="selectid2(this)" href="#" >
+											<i class="ace-icon fa fa-file bigger-120"></i>
+										</a>|
                                         <a class="green" data-rel="tooltip" data-placement="bottom" title="Edit" href="<?php echo base_url('User/Edit_Member/'.$member->mem_id)?>">
 											<i class="ace-icon fa fa-pencil bigger-120"></i>
-										</a>
+										</a>|
 										<a class="red delete" data-rel="tooltip" data-placement="bottom" title="Delete" href="<?php echo base_url('User/DeleteMember/'.$member->mem_id)?>">
 											<i class="ace-icon fa fa-trash-o bigger-120"></i>
 										</a>
@@ -134,8 +133,11 @@
 		//});
 
         // var modal = document.getElementById('myModal');
-        function selectid2(x)
-        {
+
+
+        function selectid2(x){
+
+        	$("#myModalLabel").html("Member Details");
 
             btn = $(x).data('panel-id');
 
@@ -146,13 +148,11 @@
                 cache: false,
                 success:function(data) {
 
-
                     $('.modal-body').html(data);
 
                 }
             });
             $("#myModal").modal();
-
         }
 	</script>
 
@@ -161,7 +161,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title" id="myModalLabel"><?php echo $this->lang->line('STUDENT_DETAILS')?></h3>
+        <h3 class="modal-title" id="myModalLabel"></h3>
       </div>
       <div class="modal-body">
         
