@@ -52,15 +52,13 @@
 								<li>
 									<a href="<?php print base_url('products')?>"> <i class="fa fa-tachometer"></i> Product</a>
 								</li>
-                                <li>
-                                    <a href="<?php print base_url('Super_admin/dailyReport')?>"> <i class="fa fa-tachometer"></i> Order_Report</a>
-                                </li>
+
 								<li>
 									<a href="<?php print base_url('Super_admin/GraphicalReport')?>"> <i class="fa fa-line-chart"></i> Graphical Report</a>
 								</li>
 
 								<li>
-									<a href="#"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Order Summary <i class="fa fa-angle-down" aria-hidden="true"></i></a> 
+									<a href="<?php print base_url('Super_admin/dailyReport')?>"> <i class="fa fa-file-text-o" aria-hidden="true"></i>Order Summary <i class="fa fa-angle-down" aria-hidden="true"></i></a> 
 									<ul class="gn-submenu">
 										<li class="mini_list_agile">
 											<a href="<?php print base_url('Super_admin/ManageOrder')?>"> <i class="fa fa-line-chart"></i> Manage Order</a>

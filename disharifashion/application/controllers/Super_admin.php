@@ -7,6 +7,14 @@ class Super_admin extends CI_Controller
 		parent::__construct();
 		$this->load->model('Admin_model');
 		$this->load->helper('admin_helper');
+		 $this->load->library('pdfgenerator');
+		 if ($this->session->userdata('id') == null || $this->session->userdata('id') < 1) {
+            if ($this->router->class != 'login') {
+                redirect(base_url('Admin/admin_login'));
+
+            }
+        }
+        
 	}
 	
 	public function index(){
@@ -495,7 +503,6 @@ class Super_admin extends CI_Controller
 		$data=array();
 		$data['result'] = $this->Admin_model->manage_order();
 		$this->load->view('admin/manage_order',$data,'true');
-
 	}
 	
 
@@ -534,17 +541,18 @@ class Super_admin extends CI_Controller
 		$customer_id = $data['order_info']->customer_id;
 		$shipping_id = $data['order_info']->shipping_id;
 		$data['customer_info'] = $this->Admin_model->select_customer_info_by_id($customer_id);
+		$customer_email = $data['customer_info']->email_address;
+		// echo '<pre>';
+		// print_r($data['customer_info']);exit;
 		$data['shipping_info'] = $this->Admin_model->select_shipping_info_by_id($shipping_id);
 		$data['order_details_info'] = $this->Admin_model->select_order_details_info_by_id($order_id);
 
-		//print_r($data['order_details_info']);
+      $html = $this->load->view('admin/invoicePdf', $data, true);
+		 $filename = 'invoiceGateway';
+//        $filename1='invoiceGateway';
+        $this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
 
-		$this->load->helper('dompdf');
-        //$this->load->library('pdfgenerator');
-		$view_file = $this->load->view('admin/download_invoice',$data,true);
-        //$file_name= $this->pdfgenerator->generate($view_file, 'inv-00'.$order_id, true, 'A4', 'portrait');
-		$file_name = pdf_create($view_file,'inv-00'.$order_id);
-//		echo $file_name;
+        // $this->load->view('admin/invoicePdf',$data);   
 
 	}
 
@@ -628,9 +636,10 @@ class Super_admin extends CI_Controller
             echo 0;
         }
     }
-
-
-    public  function  dailyReport()
+	
+	
+	///////////////// order ////////////////////////////////////
+	public  function  dailyReport()
     {
         $data['orders']= $this->Admin_model->getlldailyReport();
        $this->load->view("admin/ReportBydaily_monthly",$data);
@@ -657,6 +666,7 @@ class Super_admin extends CI_Controller
 
 
     }
+
 //==================== End Shipping cost =============================//
 
 
@@ -671,10 +681,6 @@ class Super_admin extends CI_Controller
 
     	$this->Admin_model->change_password();
     }
-////////////////daily Report/////////////////
-///
-///
-
 
 	public function logout(){
 
@@ -682,8 +688,6 @@ class Super_admin extends CI_Controller
 		$this->session->unset_userdata('username');
 		redirect('Admin');
 	}
-
-
 
 }//super_admin
 

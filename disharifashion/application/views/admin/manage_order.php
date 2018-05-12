@@ -44,14 +44,14 @@
                                             <!-- <a href="<?= base_url('Super_admin/Viewedit/'.$order->order_id) ?>">
                                                     edit|
                                             </a>
-                                            <a href="<?= base_url('Super_admin/ViewArchive/'.$order->order_id) ?>">
+                                            <a href="<?= base_url('Super_admin/ViewArchive/'.$order->order_id) ?>"  >
                                                     Archive|
                                             </a> -->
                                             <a href="<?= base_url('Super_admin/ViewOrderDetails/'.$order->order_id) ?>">
                                                     View|
                                             </a>
 
-                                            <a href="<?= base_url('Super_admin/CreateInvoice/'.$order->order_id) ?>">
+                                            <a href="<?= base_url('Super_admin/CreateInvoice/'.$order->order_id) ?>" target="_blank">
                                                     Invoice
                                             </a>
                                         </td>                        

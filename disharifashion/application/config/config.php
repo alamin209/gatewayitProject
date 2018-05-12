@@ -23,8 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://[::1]/Alaminhossain/gatewayitProject/disharifashion/';
-$config['base_url'] = '';
+$config['base_url'] = 'http://[::1]/New_folder/disharifashion/';
 
 /*
 |--------------------------------------------------------------------------
