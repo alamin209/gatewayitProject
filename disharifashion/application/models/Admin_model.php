@@ -269,6 +269,9 @@ class Admin_model extends CI_Model{
 		$this->db->where('order_id',$order_id);
 		$this->db->update('tbl_order');
 	}
+
+////////////////////////////////// order report //////////////////////////////
+
 	public function getlldailyReport()
     {
         $this->db->select('*');
