@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
--- https://www.phpmyadmin.net/
+-- version 4.4.12
+-- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: May 05, 2018 at 11:49 AM
--- Server version: 10.1.31-MariaDB-cll-lve
--- PHP Version: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: May 10, 2018 at 02:26 PM
+-- Server version: 5.6.25
+-- PHP Version: 5.6.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `engeduca_engeducation`
+-- Database: `hostel_management`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `student_payment`
 --
 
-CREATE TABLE `student_payment` (
-  `id` int(10) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `student_payment` (
+  `id` int(10) unsigned NOT NULL,
   `student` varchar(255) NOT NULL,
   `title` text NOT NULL,
   `amount` int(255) NOT NULL,
@@ -40,7 +38,7 @@ CREATE TABLE `student_payment` (
   `updated_by` int(255) NOT NULL,
   `created_datetime` datetime NOT NULL,
   `updated_datetime` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_payment`
@@ -61,13 +59,13 @@ INSERT INTO `student_payment` (`id`, `student`, `title`, `amount`, `status`, `mo
 -- Table structure for table `tbl_market_cost`
 --
 
-CREATE TABLE `tbl_market_cost` (
+CREATE TABLE IF NOT EXISTS `tbl_market_cost` (
   `market_cost_id` int(3) NOT NULL,
   `member_id` int(3) NOT NULL,
   `market_date` varchar(32) NOT NULL,
   `market_cost` int(11) NOT NULL,
   `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_market_cost`
@@ -83,23 +81,26 @@ INSERT INTO `tbl_market_cost` (`market_cost_id`, `member_id`, `market_date`, `ma
 -- Table structure for table `tbl_meal`
 --
 
-CREATE TABLE `tbl_meal` (
+CREATE TABLE IF NOT EXISTS `tbl_meal` (
   `meal_id` int(3) NOT NULL,
   `member_id` int(3) NOT NULL,
   `date` varchar(32) NOT NULL,
   `morning` int(3) NOT NULL,
   `lunch` int(3) NOT NULL,
   `dinner` int(3) NOT NULL,
+  `total` int(3) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_meal`
 --
 
-INSERT INTO `tbl_meal` (`meal_id`, `member_id`, `date`, `morning`, `lunch`, `dinner`, `created_date`) VALUES
-(1, 1, '04/07/2018', 1, 1, 1, '2018-04-06 18:51:41'),
-(2, 1, '04/11/2018', 1, 2, 1, '2018-04-08 11:57:47');
+INSERT INTO `tbl_meal` (`meal_id`, `member_id`, `date`, `morning`, `lunch`, `dinner`, `total`, `created_date`) VALUES
+(1, 1, '04/07/2018', 1, 1, 1, 3, '2018-05-10 10:06:52'),
+(2, 1, '04/11/2018', 1, 2, 1, 4, '2018-05-10 10:06:57'),
+(3, 3, '05/10/2018', 1, 2, 1, 4, '2018-05-10 10:07:04'),
+(4, 1, '05/10/2018', 1, 2, 3, 6, '2018-05-10 10:06:35');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,7 @@ INSERT INTO `tbl_meal` (`meal_id`, `member_id`, `date`, `morning`, `lunch`, `din
 -- Table structure for table `tbl_members`
 --
 
-CREATE TABLE `tbl_members` (
+CREATE TABLE IF NOT EXISTS `tbl_members` (
   `mem_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
@@ -123,7 +124,7 @@ CREATE TABLE `tbl_members` (
   `photo` varchar(255) NOT NULL,
   `relation_with_gardian` varchar(255) NOT NULL,
   `created_datetime` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_members`
@@ -139,13 +140,13 @@ INSERT INTO `tbl_members` (`mem_id`, `first_name`, `last_name`, `mobile`, `email
 -- Table structure for table `tbl_notices`
 --
 
-CREATE TABLE `tbl_notices` (
+CREATE TABLE IF NOT EXISTS `tbl_notices` (
   `notice_id` int(3) NOT NULL,
   `purpose_notice` varchar(100) NOT NULL,
   `notices` text NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_notices`
@@ -160,7 +161,7 @@ INSERT INTO `tbl_notices` (`notice_id`, `purpose_notice`, `notices`, `status`, `
 -- Table structure for table `tbl_payment`
 --
 
-CREATE TABLE `tbl_payment` (
+CREATE TABLE IF NOT EXISTS `tbl_payment` (
   `payment_id` int(3) NOT NULL,
   `member_id` int(3) NOT NULL,
   `payment_date` text NOT NULL,
@@ -168,7 +169,7 @@ CREATE TABLE `tbl_payment` (
   `payment_for` varchar(32) NOT NULL,
   `payment_method` int(2) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_payment`
@@ -183,9 +184,8 @@ INSERT INTO `tbl_payment` (`payment_id`, `member_id`, `payment_date`, `total_pay
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
-  `group_id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `user_name` varchar(255) NOT NULL,
@@ -194,25 +194,18 @@ CREATE TABLE `user` (
   `contact` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `photo` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `created_datetime` datetime NOT NULL,
-  `updated_by` int(11) NOT NULL,
-  `updated_datetime` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_datetime` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `group_id`, `first_name`, `last_name`, `user_name`, `password`, `email`, `contact`, `address`, `photo`, `created_by`, `created_datetime`, `updated_by`, `updated_datetime`) VALUES
-(7, 1, 'Tawhidur', 'Rahman', 'tawhid', 'e10adc3949ba59abbe56e057f20f883e', 'tawhidur.rahman@swapnoloke.com', '8801756167187', 'Mirpur-2, Dhaka', './assets/backend/uploads/8_54a8e2f9b014d.jpg', 8, '2014-06-24 01:11:30', 8, '2015-01-09 03:16:08'),
-(8, 1, 'Akramul', 'Hoque', 'akram', 'e10adc3949ba59abbe56e057f20f883e', 'akramul.haq@gmail.com', '8801766542625', 'Mirpur-2,Dhaka', './assets/backend/uploads/8_53c6f3f51024c.jpg', 0, '0000-00-00 00:00:00', 8, '2015-03-17 11:30:15'),
-(11, 1, 'sahadat', 'hossain', 'sahadat', 'e10adc3949ba59abbe56e057f20f883e', 'sahdadat@gmail.com', '885646545645', 'Hello ', './assets/backend/uploads/8_53c8330cc57fc.jpg', 8, '2014-07-19 10:15:58', 8, '2015-02-04 10:55:04'),
-(13, 2, 'Shagor', 'Badsha', 'shagor', '6ff86cfdd91815c9e65cdf71db2f9ec0', 'cloudnumber0707@gmail.com', '8801682281374', 'dhanmondi', './assets/backend/uploads/DSC_8024.jpg', 8, '2015-02-25 12:49:54', 13, '2015-03-06 06:57:29'),
-(14, 2, 'Tipu', 'Sultan', 'Tipu', '827ccb0eea8a706c4c34a16891f84e7b', 'tipu@gmail.com', '8812345', 'Fulgazi,Feni', './assets/backend/uploads/13_54edbf81956d2.png', 13, '2015-02-25 01:26:41', 13, '2015-02-25 01:26:41'),
-(15, 5, 'Wesly ', 'Hardin', 'Hardin', 'e10adc3949ba59abbe56e057f20f883e', 'nahidahmed10@ymail.com', '8801670333021', 'Mirpur 2', './assets/backend/uploads/8_54f58434bed86.jpg', 8, '2015-03-03 10:51:48', 8, '2015-03-17 12:50:17'),
-(17, 2, 'Tawfiqur', 'rahman', 'tawfiq', '827ccb0eea8a706c4c34a16891f84e7b', 't@g.com', '8812345', 'Dhaka', '', 13, '2015-03-05 07:44:08', 13, '2015-03-05 07:44:08'),
-(18, 3, 'Tipu', 'Sultan', 'tipu', '827ccb0eea8a706c4c34a16891f84e7b', 't@g.com', '8812345', 'Dhaka', '', 8, '2015-03-05 08:48:28', 8, '2015-03-05 08:48:28');
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `user_name`, `password`, `email`, `contact`, `address`, `photo`, `created_datetime`) VALUES
+(7, 'Tawhidur', 'Rahman', 'tawhid', 'e10adc3949ba59abbe56e057f20f883e', 'tawhidur.rahman@swapnoloke.com', '8801756167187', 'Mirpur-2, Dhaka', './assets/backend/uploads/8_54a8e2f9b014d.jpg', '2014-06-24 01:11:30'),
+(8, 'Akramul', 'Hoque', 'akram', 'e10adc3949ba59abbe56e057f20f883e', 'akramul.haq@gmail.com', '8801766542625', 'Mirpur-2,Dhaka', './assets/backend/uploads/8_53c6f3f51024c.jpg', '0000-00-00 00:00:00'),
+(13, 'Shagor', 'Badsha', 'shagor', '827ccb0eea8a706c4c34a16891f84e7b', 'cloudnumber0707@gmail.com', '8801682281374', 'dhanmondi', './assets/backend/uploads/DSC_8024.jpg', '2015-02-25 12:49:54'),
+(15, 'nahida', 'ahmed', 'nahida', 'e10adc3949ba59abbe56e057f20f883e', 'nahidahmed10@ymail.com', '8801670333021', 'Mirpur 2', './assets/backend/uploads/jhamela.jpg', '2015-03-03 10:51:48');
 
 -- --------------------------------------------------------
 
@@ -220,13 +213,13 @@ INSERT INTO `user` (`id`, `group_id`, `first_name`, `last_name`, `user_name`, `p
 -- Table structure for table `user_group`
 --
 
-CREATE TABLE `user_group` (
+CREATE TABLE IF NOT EXISTS `user_group` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `info` varchar(255) NOT NULL,
   `updated_by` int(11) NOT NULL,
   `updated_datetime` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_group`
@@ -300,51 +293,42 @@ ALTER TABLE `user_group`
 -- AUTO_INCREMENT for table `student_payment`
 --
 ALTER TABLE `student_payment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_market_cost`
 --
 ALTER TABLE `tbl_market_cost`
-  MODIFY `market_cost_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `market_cost_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_meal`
 --
 ALTER TABLE `tbl_meal`
-  MODIFY `meal_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `meal_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_members`
 --
 ALTER TABLE `tbl_members`
-  MODIFY `mem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `mem_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_notices`
 --
 ALTER TABLE `tbl_notices`
-  MODIFY `notice_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `notice_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `payment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `payment_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `user_group`
 --
 ALTER TABLE `user_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

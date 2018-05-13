@@ -114,6 +114,14 @@
 						</a>
 						<b class="arrow"></b>
 					</li>
+
+					<li>
+						<a href="<?php echo base_url('user/ShowIndividualMeal');?>">
+							<i class="menu-icon fa fa-crosshairs"></i> 
+							<span class="menu-text">Show Individual</span>
+						</a>
+						<b class="arrow"></b>
+					</li>
 				</ul>
 			</li>
 
@@ -132,6 +140,15 @@
 						</a>
 						<b class="arrow"></b>
 					</li>
+
+					<li>
+						<a href="<?php echo base_url('user/Add_payment');?>">
+						<i class="menu-icon fa fa-crosshairs"></i> 
+						<span class="menu-text">Payment</span>
+						</a>
+						<b class="arrow"></b>
+					</li>
+					
 					
 					<li>
 						<a href="<?php echo base_url('user/ShowPaymentHistory');?>">

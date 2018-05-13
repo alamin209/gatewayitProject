@@ -398,26 +398,32 @@ class User extends Base_Controller {
 		$data['morning'] = $this->input->post('morning');
 		$data['lunch'] = $this->input->post('lunch');
 		$data['dinner'] = $this->input->post('dinner');
+		$data['total'] = $data['morning']+$data['lunch']+$data['dinner'];
 
-		$result = $this->user_model->commonInsert('tbl_meal',
-				$data);
+		$result = $this->user_model->commonInsert('tbl_meal',$data);
 
 		if($result){
 
 			$msg = 'Meal has been save successfully';
-			$message = array('message' => $msg);
-			$this->session->set_flashdata($message);
+			$message = $this->msg($msg);
 			redirect('user/Add_meal');
 
 		}else{
 
 			$msg = 'Failed to Save';
-			$message = array('message' => $msg);
-			$this->session->set_flashdata($message);
+			$message = $this->msg($msg);
 			redirect('user/Add_meal');
 
 		}
 
+	}//save_meal
+
+	public function ShowIndividualMeal(){
+
+		$this->load->view('backend/template_header');
+		$this->load->view('backend/template_left');
+		$this->load->view('backend/show_member_meal');
+		$this->load->view('backend/template_footer');
 	}
 
 //====================== Payment ==============================================//

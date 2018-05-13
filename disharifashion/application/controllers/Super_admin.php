@@ -547,11 +547,10 @@ class Super_admin extends CI_Controller
 		$data['shipping_info'] = $this->Admin_model->select_shipping_info_by_id($shipping_id);
 		$data['order_details_info'] = $this->Admin_model->select_order_details_info_by_id($order_id);
 
-      $html = $this->load->view('admin/invoicePdf', $data, true);
-		 $filename = 'invoiceGateway';
-//        $filename1='invoiceGateway';
+		$html = $this->load->view('admin/invoicePdf', $data, true);
+		$filename = 'invoiceGateway';
+		//$filename1='invoiceGateway';
         $this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
-
         // $this->load->view('admin/invoicePdf',$data);   
 
 	}
@@ -637,6 +636,8 @@ class Super_admin extends CI_Controller
         }
     }
 	
+//==================== End Shipping cost =============================//
+	
 	
 	///////////////// order ////////////////////////////////////
 	public  function  dailyReport()
@@ -662,12 +663,7 @@ class Super_admin extends CI_Controller
         $this->data['allreport']= $this->Admin_model->viewAllReportByorder($orderID);
         $this->load->view('admin/ReportFilterByOrderId', $this->data);
 
-
-
-
     }
-
-//==================== End Shipping cost =============================//
 
 
 //==================== password change & logout ======================//
