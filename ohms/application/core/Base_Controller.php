@@ -4,19 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 abstract class Base_Controller extends CI_Controller
 {
     public $user_id;
-    public $user_ref_id;
-    public $role;
-    const ADMIN = 1;
-    const USER = 0;
 
     public abstract function index();
 
     public function __construct()
     {
         parent::__construct();
-        $this->user_id = $this->session->userdata('user_id');
-        $this->user_ref_id = $this->session->userdata('ref_id');
-        $this->role = $this->session->userdata('role');
+        $this->user_id = $this->session->userdata('id');
     }
 
     public function msg($msg){

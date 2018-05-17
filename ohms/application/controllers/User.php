@@ -80,20 +80,23 @@ class User extends Base_Controller {
 			$data['created_datetime'] = date("Y-m-d h:i:s");
 			$data['photo'] = $this->uploadPhoto();
 
-			$result = $this->user_model->commonInsert('user',$data);
-			if($result){
+			print_r($data['photo']);
+			exit;
 
-				$msg = $data['first_name'].' has been created successfully';
-				$message = $this->msg($msg);
-				redirect('user/index');
-
-			}else{
-
-				$msg = $data['first_name'].' Failed to Add User!!';
-				$message = $this->msg($msg);
-				redirect('user/index');
-
-			}
+//			$result = $this->user_model->commonInsert('user',$data);
+//			if($result){
+//
+//				$msg = $data['first_name'].' has been created successfully';
+//				$message = $this->msg($msg);
+//				redirect('user/index');
+//
+//			}else{
+//
+//				$msg = $data['first_name'].' Failed to Add User!!';
+//				$message = $this->msg($msg);
+//				redirect('user/index');
+//
+//			}
 			
 		}//if
 		
