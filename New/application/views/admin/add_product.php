@@ -98,25 +98,25 @@
                         <div id="showattr" style="display: none">
                             <div id='TextBoxesGroup'>
                                 <div id="TextBoxDiv1" >
-<!--                                    <div class="form-group">-->
-<!--                                        <label class="control-label col-md-3"> /Weight/Size/Extra #1 : </label>-->
-<!--                                        <div class="col-md-6">-->
-<!--                                            <input class="form-control input-height"  placeholder="Add your optional  description 1 " type='textbox' id='textbox1' name="textbox[]" >-->
-<!--                                        </div>-->
-<!--                                    </div>-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3"> Color/Weight/Size/Extra #1 : </label>
+                                        <div class="controls">
+                                            <input class="form-control input-height"  placeholder="Add your optional  description 1" name="option_extra" >
+                                        </div>
+                                    </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" for="userfile">/Weight/Size/Extra #1 :</label>
+                                        <label class="control-label" for="userfile">Given Color/Weight/Size/Extra #1  value should be input here </label>
                                         <div class="controls">
-                                            <input class="form-control input-height"  placeholder="Add your optional  description  " type='textbox' id='textbox1' name="textbox[]" >                                        </div>
+                                            <input class="form-control input-height"   type='textbox' id='textbox1' name="textbox[]" >                                        </div>
                                     </div>
 
                                 </div>
                             </div>
-                            <div id="add_remove_button" class="form-group" style="margin-left: 230px">
-                                <input class="btn btn-success" type='button' value='Add More' id='addButton'>
-                                <input class="btn btn-danger" type='button' value='Remove' id='removeButton'>
-                            </div>
+<!--                            <div id="add_remove_button" class="form-group" style="margin-left: 230px">-->
+<!--                                <input class="btn btn-success" type='button' value='Add More' id='addButton'>-->
+<!--                                 <input class="btn btn-danger" type='button' value='Remove' id='removeButton'>-->
+<!--                            </div>-->
 
                         </div>
                       <div class="control-group">
@@ -164,25 +164,25 @@ return false;
 
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        var counter = 2;
-        $("#addButton").click(function () {
-            if(counter>10){
-                alert("Only 10 textboxes allow");
-                return false;
-            }
-            var newTextBoxDiv = $(document.createElement('div'))
-                .attr("id", 'TextBoxDiv' + counter);
-            newTextBoxDiv.after().html('<div class="form-group">'+
-                '<label class="control-label">Size/Extra #'+ counter + ' : </label>'+
-                '<div class="controls">'+
-                '<input class="form-control input-height"  placeholder="Add your optional  description  "  type="textbox" id="textbox1" name="textbox[]" >'+
-                '</div>'+
-                '</div>'
-            );
-            newTextBoxDiv.appendTo("#TextBoxesGroup");
-            counter++;
-        });
+    // $(document).ready(function(){
+    //     var counter = 2;
+    //     $("#addButton").click(function () {
+    //         if(counter>10){
+    //             alert("Only 10 textboxes allow");
+    //             return false;
+    //         }
+    //         var newTextBoxDiv = $(document.createElement('div'))
+    //             .attr("id", 'TextBoxDiv' + counter);
+    //         newTextBoxDiv.after().html('<div class="form-group">'+
+    //             '<label class="control-label">Size/Extra #'+ counter + ' : </label>'+
+    //             '<div class="controls">'+
+    //             '<input class="form-control input-height"  placeholder="Add your optional  description  "  type="textbox" id="textbox1" name="textbox[]" >'+
+    //             '</div>'+
+    //             '</div>'
+    //         );
+    //         newTextBoxDiv.appendTo("#TextBoxesGroup");
+    //         counter++;
+    //     });
         $("#removeButton").click(function () {
             if(counter==2){
                 alert(" textbox to remove");

@@ -50,13 +50,14 @@ class Checkout_model extends CI_Model{
 		    $oddata['product_id'] = $value['id'];
 		    $oddata['product_name'] = $value['name'];
 		    $oddata['product_price'] = $value['price'];
-		    $oddata['product_sales_quantity'] = $value['qty'];
+            $oddata['product_price'] = $value['price'];
+            $oddata['product_optional']= $this->input->post('optional');
+            $oddata['product_sales_quantity'] = $value['qty'];
 		    $oddata['product_image'] = $value['image'];
 		    $oddata['flaver'] = $value['flaver'];
 		    $oddata['weight'] = $value['weight'];
 
 			$this->db->insert('tbl_order_details',$oddata);
-			
 		}//foreach
 
 		$sql="update product as p, tbl_order_details as od

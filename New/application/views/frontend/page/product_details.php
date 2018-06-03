@@ -42,15 +42,18 @@
 											</div>
 										</td>
 									</tr>
+                                    <?php foreach ($product_d  as $d ) {  ?>
+                                <?php if($product_description->prod_id ==$d->prod_id) { ?>z
                                     <tr>
-                                        <th width="44%" height="33" scope="row">Size:</th>
+                                        <th width="44%" height="33" scope="row"><?php echo $d->op_extra ?>:</th>
                                         <td>
-                                            <?php foreach ($product_d  as $d ) {  ?>
-                                                <?php if($product_description->prod_id ==$d->prod_id) { ?>
 
-                                                    <div class="pricedetails"><?php echo  $d->op_desc ?>
-                                                        <div class="txtSale" style="padding-top:10px;"></div>
-                                                    </div>
+                                            <select class="form-control input-height" required id="usertype" name="extra">
+<!--                                                <option value="">Select Option </option>-->
+                                                <?php foreach ($product_e as $product) { ?>
+                                                    <option value="<?php echo $product->extr_id ?>"<?php if (!empty($d->prod_id) && $product->extr_id==$d->prod_id) echo 'selected="selected"'?>><?php echo $product->extra_name?></option>
+                                                <?php } ?>
+                                            </select>
 
                                                 <?php  } }   ?>
                                         </td>

@@ -8,7 +8,9 @@
                 <input type="text" name="optional" placeholder="enter  optional Text" required class="form-control input-height" />
             </div>
 
-            <input type="hidden" name="product_id"  value="<?php echo $prduct_id ?>" placeholder="enter  optional Text" required class="form-control input-height" />
+            <input type="hidden" name="product_id"  value="<?php echo $prduct_id ?>"  required class="form-control input-height" />
+            <input type="hidden" name="optional_id"  value="<?php echo  $name?>"  required class="form-control input-height" />
+
 
         </div>
 

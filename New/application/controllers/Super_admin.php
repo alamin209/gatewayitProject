@@ -8,7 +8,7 @@ class Super_admin extends CI_Controller
 		$this->load->model('Admin_model');
 		$this->load->helper('admin_helper');
 	}
-	
+
 	public function index(){
 
 		$data['result']=$this->Admin_model->products();
@@ -322,7 +322,7 @@ class Super_admin extends CI_Controller
 
 		$data=array();
 		$data['subcategory']=$this->Admin_model->subcategory();
-		$this->load->view('admin/subcategory',$data,'true'); 
+		$this->load->view('admin/subcategory',$data,'true');
 	}
 
 	public function subcategory_save(){
@@ -465,7 +465,9 @@ class Super_admin extends CI_Controller
 
 		$data=array();
         $data['product_d'] = $this->Admin_model->getProductDetails();
-		$data['result']=$this->Admin_model->products(); 
+        $data['product_e'] = $this->Admin_model->getProductExtra();
+
+        $data['result']=$this->Admin_model->products();
 		$this->load->view('admin/products',$data,'true');
 	}
 
@@ -483,7 +485,7 @@ class Super_admin extends CI_Controller
     {
 
         $optional_id = $this->input->post('id');
-        $data['optionaInfo'] = $this->Admin_model->getOptionalProductId($optional_id);
+        $data['optionaInfo'] = $this->Admin_model->getOptionalProductId($optional_id);;
         $this->load->view('admin/updateOptional',$data);
 
     }
@@ -491,7 +493,8 @@ class Super_admin extends CI_Controller
     public function newOptionalProduct(){
 
             $data['prduct_id'] = $this->input->post('id');
-            $this->load->view('admin/addNewOptional', $data);
+            $data['name'] = $this->input->post('name');
+        $this->load->view('admin/addNewOptional', $data);
 
          }
 
@@ -499,10 +502,11 @@ class Super_admin extends CI_Controller
     {
         $optional = $this->input->post('optional');
         $product_id = $this->input->post('product_id');
-
+        $optional_id = $this->input->post('optional_id');
         $productSizedata1 = array(
             'prod_id' => $product_id,
-            'op_desc' => $optional,
+            'optional_id' => $optional_id,
+            'extra_name' => $optional,
         );
 
         $this->data['error'] = $this->Admin_model->insertproductSizedata1($productSizedata1);
@@ -526,7 +530,7 @@ class Super_admin extends CI_Controller
             $product_id = $this->input->post('prod_id');
 
             $productSizedata = array(
-                'op_desc' => $optional,
+                'extra_name' => $optional,
                 'prod_id' => $product_id
 
             );
@@ -567,6 +571,7 @@ class Super_admin extends CI_Controller
 		$data['prod_code'] = $this->input->post('code');
 		$data['prod_qty'] = $this->input->post('prod_qty');
         $textbox = $this->input->post('textbox[]');
+        $option_ext = $this->input->post('option_extra');
         $config['upload_path'] = 'assets/img/product_image/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = 1024;
@@ -587,23 +592,24 @@ class Super_admin extends CI_Controller
     		$fdata=$this->upload->data();
             $data['image'] = $config['upload_path'].$fdata['file_name'];
         }
-		
 		$result = $this->Admin_model->product_save($data);
-        if (array_filter($textbox) == null) {
-            redirect('Super_admin/add_product');
+            $productSizedata = array(
+               'prod_id'=> $result,
+                'op_extra'=>$option_ext
+            );
 
-        }
+             $result1 = $this->Admin_model->insertproductSizedata($productSizedata);
 
-        else {
             for ($i = 0; $i < count($textbox); $i++) {
-
-                $productSizedata = array(
+                $productSizedata1 = array(
                     'prod_id' => $result,
-                    'op_desc' => $textbox[$i],
+                    'optional_id'=>$result1,
+                    'extra_name' => $textbox[$i]
+
                 );
 
-                $result = $this->Admin_model->insertproductSizedata($productSizedata);
-            }
+                $result = $this->Admin_model->insertproductSizedataoptiondata($productSizedata1);
+
         }
 
 
@@ -620,14 +626,14 @@ class Super_admin extends CI_Controller
 	        redirect('add_product');
 		}
 	}
-	
+
 
 	public function edit_product($id){
 
 		$data['selected_product'] = $this->Admin_model->select_product($id);
 
 		$this->load->view('admin/edit_product',$data,'true');
-		
+
 	}
 
 	public function UpdateProduct(){
@@ -645,7 +651,7 @@ class Super_admin extends CI_Controller
 		$this->db->set('prod_code', $code);
 		$this->db->set('prod_qty', $qty);
 
-		
+
 		if(isset($prod_id) && $prod_id != ''){
 
 			$data = array('prod_id' => $prod_id);
@@ -709,7 +715,7 @@ class Super_admin extends CI_Controller
 			$sdata["delete"]="Deleted Successfully";
 			$this->session->set_userdata($sdata);
 			redirect('super_admin/products');
-			
+
 		}else{
 
 			$sdata=array();
@@ -725,7 +731,7 @@ class Super_admin extends CI_Controller
 	public function FlavorWeight(){
 
 		$data=array();
-		$data['result']=$this->Admin_model->flover_weight(); 
+		$data['result']=$this->Admin_model->flover_weight();
 		$this->load->view('admin/flover_weight',$data);
 	}
 
@@ -761,7 +767,7 @@ class Super_admin extends CI_Controller
 	public function EditFloverWeight($fwID=''){
 
 		$data['select_info'] = $this->db->select('*')->from('tbl_flover_weight')->where('fw_id',$fwID)->get()->row();
-		$this->load->view('admin/edit_flover_weight', $data);	
+		$this->load->view('admin/edit_flover_weight', $data);
 	}
 
 	public function UpdateFloverWeight(){
@@ -804,7 +810,7 @@ class Super_admin extends CI_Controller
 			$this->session->set_userdata($sdata);
 			redirect('super_admin/FlavorWeight');
 		}
-		
+
 	}
 
 //==================== Order Summary ====================//
@@ -815,7 +821,7 @@ class Super_admin extends CI_Controller
 		$data['result'] = $this->Admin_model->manage_order();
 		$this->load->view('admin/manage_order',$data,'true');
 	}
-	
+
 
 	public function ViewOrderDetails($order_id){
 
@@ -904,15 +910,15 @@ class Super_admin extends CI_Controller
 //==========================================others==============================//
 
     public function getSubcatByCatId($id = null){
-        
+
         if ($id != null) {
             $this->load->helper('admin_helper');
             getAllSubcatByCatId($id);
         }
     }
-	
+
 	 public function getSubcatByCatId2($id = null){
-        
+
         if ($id != null) {
             $this->load->helper('admin_helper');
             getAllSubcatByCatId2($id);
@@ -920,13 +926,13 @@ class Super_admin extends CI_Controller
     }
 
     public function getStateByCountryId($id = null){
-        
+
         if ($id != null) {
             $this->load->helper('admin_helper');
             getAllStatesByCountryId($id);
         }
     }
-    
+
 //==================== Get Shipping cost =============================//
 
     public function check_shippingCost($val = null)
@@ -961,7 +967,7 @@ class Super_admin extends CI_Controller
     	$con_pass = md5($this->input->post('confirm_password'));
 
     	$pre_info = $this->db->select('*')->from('a_panel')->where('id', $userID)->get()->row();
-    	$pre_pass = $pre_info->password; 
+    	$pre_pass = $pre_info->password;
 
   		if($pre_pass == $old_pass){
 
@@ -994,14 +1000,14 @@ class Super_admin extends CI_Controller
 				redirect('super_admin/change_password');
 
   			}
-  			
+
   		}else{
 
   			$sdata=array();
 			$sdata["exception"]="Old Password doesn't Match.!!!";
 			$this->session->set_userdata($sdata);
 			redirect('super_admin/change_password');
-  			
+
   		}
 
     }

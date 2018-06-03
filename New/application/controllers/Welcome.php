@@ -111,7 +111,13 @@ class Welcome extends CI_Controller {
         $p_id = $this->input->post('id');
         $cat_id=$this->input->post('cat_id');
 
-        if($p_id=="low")
+    if ($p_id=="df")
+    {
+        $data['code'] = $this->Admin_model->getProductByLatest($cat_id);
+        $this->load->view('frontend/page/sortedBycode', $data);
+    }
+
+        elseif($p_id=="low")
         {
 
             $data['low'] = $this->Admin_model->getProductBylow($cat_id);
@@ -140,31 +146,40 @@ class Welcome extends CI_Controller {
     {
         $p_id = $this->input->post('id');
         $cat_id=$this->input->post('sub_cat');
-
-        if($p_id=="low")
+        if($p_id=="df")
+        {
+            $data['latest'] = $this->Admin_model->getProductBySubLatest($cat_id);
+            $this->load->view('frontend/page/sortedByLatest', $data);
+        }
+        elseif($p_id=="low")
         {
 
-            $data['low'] = $this->Admin_model->getProductsubBylow($cat_id);
-            $this->load->view('frontend/page/sortedBysublow', $data);
+            $data['low'] = $this->Admin_model->getsubProductBylow($cat_id);
+            $this->load->view('frontend/page/sortedBylow', $data);
         }
+
         elseif ($p_id=="high")
         {
-            $data['high'] = $this->Admin_model->getProductByHigh($cat_id);
+            $data['high'] = $this->Admin_model->getsubProductByHigh($cat_id);
             $this->load->view('frontend/page/sortedByhigh', $data);
         }
         elseif ($p_id=="code")
         {
-            $data['code'] = $this->Admin_model->getProductByCode($cat_id);
+            $data['code'] = $this->Admin_model->getsubProductByCode($cat_id);
             $this->load->view('frontend/page/sortedBycode', $data);
         }
 
         elseif ($p_id=="lat")
         {
-            $data['code'] = $this->Admin_model->getProductByLatest($cat_id);
-            $this->load->view('frontend/page/sortedBycode', $data);
+            $data['latest'] = $this->Admin_model->getProductBySubLatest($cat_id);
+            $this->load->view('frontend/page/sortedByLatest.php', $data);
         }
 
     }
+
+
+
+
 
     /* public function GiftPackage(){
 
@@ -254,6 +269,7 @@ class Welcome extends CI_Controller {
 		//$SubID = $data['product_description']->prod_subcatid;
 		//$data['All_SubProduct'] = $this->db->select('*')->from('product')->where('prod_subcatid',$SubID)->get()->result();
         $data['product_d'] = $this->Admin_model->getProductDetails();
+        $data['product_e'] = $this->Admin_model->getProductExtra();
         $data['content'] = $this->load->view('frontend/page/product_details', $data, true);
 		$this->load->view('frontend/index', $data);	
 		

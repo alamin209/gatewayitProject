@@ -124,7 +124,7 @@ class Admin_model extends CI_Model{
 	public function insertproductSizedata1($productSizedata1)
     {
         $this->security->xss_clean($productSizedata1);
-        $error = $this->db->insert('optional', $productSizedata1);
+        $error = $this->db->insert('extra_info', $productSizedata1);
         if (empty($error)) {
             return $this->db->error();
         } else {
@@ -362,37 +362,21 @@ public function getProductDetails()
     return $query;
 
 }
+    public function getProductExtra()
+    {
+        $query = $this->db->select('*')->from('extra_info')->get()->result();
+        return $query;
 
-public function getProductBylow($cat_id)
-{
-    $this->db->from("product");
-    $this->db->order_by("prod_price", "asc");
-    $this->db->where('prod_catid',$cat_id);
-    $query = $this->db->get();
-    return $query->result();
-
-}
-public function getProductsubBylow($cat_id)
-{
-    $this->db->from("product");
-    $this->db->order_by("prod_price", "asc");
-    $this->db->where('subcat_catid',$cat_id);
-    $query = $this->db->get();
-    return $query->result();
-}
+    }
 
 public function insertproductSizedata($productSizedata)
 {
     $this->security->xss_clean($productSizedata);
-    $error = $this->db->insert('optional', $productSizedata);
-    if (empty($error)) {
-        return $this->db->error();
-    } else {
-
-        return $error = null;
-    }
+    $product_id = $this->db->insert('optional', $productSizedata);
+    $product_id=$this->db->insert_id();
+    return $product_id;
 }
-
+////category //////////////////////////////////////////////////////////////////
 public function getProductByHigh($cat_id)
 {
     $this->db->from("product");
@@ -401,6 +385,15 @@ public function getProductByHigh($cat_id)
     $query = $this->db->get();
     return $query->result();
 }
+    public function getProductBylow($cat_id)
+    {
+        $this->db->from("product");
+        $this->db->order_by("prod_price", "asc");
+        $this->db->where('prod_catid',$cat_id);
+        $query = $this->db->get();
+        return $query->result();
+
+    }
 
 public function getProductByCode($cat_id)
 {
@@ -420,6 +413,65 @@ public function getProductByLatest($cat_id)
     $query = $this->db->get();
     return $query->result();
 }
+
+//////////////////////////////////////////////sub/////////////////////////////////
+
+
+    public function getsubProductByHigh($cat_id)
+    {
+        $this->db->from("product");
+        $this->db->order_by("prod_price", "desc");
+        $this->db->where('prod_subcatid',$cat_id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getProductBySubLatest($cat_id)
+    {
+        $this->db->from("product");
+        $this->db->order_by("prod_price", "desc");
+        $this->db->where('prod_subcatid',$cat_id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getsubProductBylow($cat_id)
+    {
+        $this->db->from("product");
+        $this->db->order_by("prod_price", "asc");
+        $this->db->where('prod_subcatid',$cat_id);
+        $query = $this->db->get();
+        return $query->result();
+
+    }
+
+    public function getsubProductByCode($cat_id)
+    {
+        $this->db->from("product");
+        $this->db->order_by("prod_code", "desc");
+        $this->db->where('prod_subcatid',$cat_id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getsubProductByLatest($cat_id)
+    {
+        $this->db->from("product");
+        $this->db->order_by("prod_id", "desc");
+        $this->db->limit(10);
+        $this->db->where('prod_catid',$cat_id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+
+public function insertproductSizedataoptiondata($productSizedata1)
+{
+
+    $this->security->xss_clean($productSizedata1);
+    $this->db->insert('extra_info', $productSizedata1);
+}
+
+
 
 }//Admin_model
 

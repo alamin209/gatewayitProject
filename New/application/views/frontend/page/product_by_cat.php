@@ -41,7 +41,6 @@
 							  <option value="low">Price - Low to High</option>
 							  <option value="high">Price - High to Low</option>
 							  <option value="code">Product Code</option>
-							  <option value="pop">Popularity</option>
 							  <option value="lat">Latest</option>
 							</select>
 						</div>

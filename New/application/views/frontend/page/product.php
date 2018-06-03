@@ -29,25 +29,25 @@
 					</div>
 				</div>
 
-				<div class="navigationarea" id="example">
+				<div class="navigationarea">
 					<div class="navigation">
 						<div style="float:left;width:50%;padding: 18px 0 0 0;">Total <?php echo count($All_SubProduct);?> Products</div>
 						<div style="float:right;width:50%;text-align:right !important;padding: 18px 0 0 0;margin: 0 0 0 0;">
-							Sort By: 
-							<select class="dropDown" id="sortMethod" class="textbox"  name="categoryid">
-							  <option value="">Default</option>
-							  <option value="low">Price - Low to High</option>
-							  <option value="high">Price - High to Low</option>
-							  <option value="code">Product Code</option>
-							  <option value="populerty">Popularity</option>
-							  <option value="latest">Latest</option>
-							</select>
+							Sort By:
+                            <select class="dropDown" id="sortMethod" class="textbox"   name="categoryid">
+                                <option value="df">Default</option>
+                                <option value="low">Price - Low to High</option>
+                                <option value="high">Price - High to Low</option>
+                                <option value="code">Product Code</option>
+                                <option value="lat">Latest</option>
+                            </select>
 						</div>
 						<br clear="all"/>
 					</div>
 				</div>
 
-				<div class="innerproductarea">
+
+                <div class="innerproductarea" id="example" >
 				
 					<?php foreach($All_SubProduct as $product){ ?>
 						<div class="actualProduct">
@@ -74,7 +74,7 @@
 					<br clear="all"/>
 				</div>
 			
-			</div>
+			</>
 
 			<!--<div id="load_more" style="cursor:pointer;margin-bottom:10px;border:#dcdcdc 1px solid;width:98%;text-align:center;padding:10px;background-color:#fafafa;">Click Here to Load More Products</div>
 
@@ -141,7 +141,6 @@
 
 							}
 						});
-
 
 						$j("#load_more").click(function() {
 						
@@ -219,12 +218,7 @@
 
                 var stateID = $(this).val();
                  var sub_cat="<?php echo $SubCat_name->subcat_id ?>";
-
-                alert(stateID);
-
-
                 if(stateID) {
-
                     $.ajax({
                         url:"<?php echo base_url() ?>Welcome/sortingSubcatIdProduct/",
                         data:{id:stateID,sub_cat:sub_cat},

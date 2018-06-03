@@ -5,7 +5,7 @@
         <div class="form-group">
             <label class="control-label col-md-3"> extra size  Name<span class="required"> * </span></label>
             <div class="col-md-5">
-                <input type="text" name="optional" value="<?php echo $o->op_desc ?>" required class="form-control input-height" />
+                <input type="text" name="optional" value="<?php echo $o->op_extra ?>" required class="form-control input-height" />
             </div>
             <input type="hidden" name="prod_id"  value="<?php echo $o->prod_id ?>"  required class="form-control input-height" />
 

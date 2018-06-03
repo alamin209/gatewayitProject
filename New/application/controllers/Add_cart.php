@@ -20,7 +20,7 @@ class Add_cart extends CI_Controller{
 		$flaver = $this->input->post('flaver');
 		$weight = $this->input->post('weight');
 		$qty = $this->input->post('qty');
-
+        $extra = $this->input->post('extra');
 		$data['pricebyweight'] = $this->db->select('price')->from('tbl_flover_weight')->where('fw_id',$weight)->get()->row();
 
 		$pricebyweight = $data['pricebyweight']->price;
@@ -36,11 +36,14 @@ class Add_cart extends CI_Controller{
 	            'flaver'      => $flaver,
 	            'weight'      => $weight,
 	            'qty'     => $qty,
+	             'extra' =>$extra,
 	            'price'   => $value->prod_price,
 	            'code'   => $value->prod_code,
 	            'name'    => $value->prod_name,
 	            'image'    => $value->image
 	        );
+
+
 
 		}else{
 
@@ -51,13 +54,16 @@ class Add_cart extends CI_Controller{
 	            'flaver'      => $flaver,
 	            'weight'      => $weight,
 	            'qty'     => $qty,
-	            'price'   => $pricebyweight,
+                'extra'    =>$extra,
+                'price'   => $pricebyweight,
 	            'code'   => $value->prod_code,
 	            'name'    => $value->prod_name,
 	            'image'    => $value->image
 	        );
 		}
-		
+
+
+
         // $sdata = array(
         //     'price'   => $value->prod_price
         // );
@@ -66,6 +72,7 @@ class Add_cart extends CI_Controller{
 		//$this->cart->product_name_rules = '^.';
 
        if($this->cart->insert($sdata)){
+
 
             redirect('show_cart');
 

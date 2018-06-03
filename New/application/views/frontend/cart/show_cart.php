@@ -21,8 +21,9 @@
 										<td class="image">Image</td>
 										<td class="name">Product Name</td>
 										<td class="quantity">Quantity</td>
-										<td class="price">Unit Price</td>
-										<td class="total"> Sub-Total</td>
+                                        <td class="optional">Optional</td>
+                                        <td class="price">Unit Price</td>
+                                        <td class="total"> Sub-Total</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -72,7 +73,9 @@
 											?>
 											<div class="cart-option"></div>
 										</td>
-											
+
+
+
 										<td class="quantity" data-label="Quantity" >
 											<form action="<?= base_url('Add_cart/Update_cart/'.$value['rowid']);?>" method="post">
 												<input type="number" name="qty" value="<?php print $value['qty'];?>" >
@@ -83,7 +86,12 @@
 												<img src="<?= base_url('assets/front/images/remove.png');?>" alt="Remove" title="Remove" />
 											</a>
 										</td>
-										<td class="price" data-label="Unit Price"  ><?= $value['price'];?> TK</td>
+                                       <?php
+                                        $extra = $this->db->select('*')->from('extra_info')->where('extr_id',$value['extra'])->get()->row(); ?>
+
+                                         <td class="optional" data-label="optional"  ><?= $extra->extra_name;?> </td>
+                                        <input type="hidden" name="optional" value="><?php $extra->extra_name ?>" >
+                                        <td class="price" data-label="Unit Price"  ><?= $value['price'];?> TK</td>
 										<td class="total" data-label="Total">
 											<?php
 												$TotalPrice = $value['price']*$value['qty'];
