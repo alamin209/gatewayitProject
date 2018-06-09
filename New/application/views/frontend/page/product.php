@@ -16,7 +16,7 @@
 					<?php include('leftmenu.php');?>
 				</div>
 			</div>
-			
+
 			<div class="rightcontentarea">
 				<div class="headarea">
 					<div class="headtext"><?= $SubCat_name->subcategory; ?></div>

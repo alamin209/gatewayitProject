@@ -77,7 +77,7 @@
 				<input type="text" name="item_price[]" value="Tk ৳500.00" />
 				<input type="text" name="item_totalprice[]" value="500" />
 			</tr>
-			
+
 			<tr class="listdesign">
 				<td align="center">&nbsp;</td>
 				<td align="left">DAAL</td>
@@ -141,8 +141,8 @@
 					<input name="totaladdition" value="0" id="totaladdition" readonly>
 				</td>
 			</tr>
-			
-			
+
+
 			<tr class="listdesign2" style="height:35px">
 				<td>&nbsp;</td>
 				<td align="left">&nbsp;</td>

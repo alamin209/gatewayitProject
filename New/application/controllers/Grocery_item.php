@@ -36,7 +36,7 @@ class Grocery_item extends CI_Controller{
 	public function GroceryItems(){
 
 		$data=array();
-		$data['result']=$this->Grocery_model->get_grocery(); 
+		$data['result']=$this->Grocery_model->get_grocery();
 		$this->load->view('admin/grocery',$data);
 	}
 

@@ -202,6 +202,11 @@
                                                                 <label>Delivery Date&nbsp;<span style="color:red;">*</span></label>
                                                                 <input type="date" name="del_date"  value="" />
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label>&nbsp;Gretting Message <span style="color:red;">*</span></label>
+                                                                <textarea rows="2" cols="50" name="Greating" >
+                                                                  </textarea>
+                                                            </div>
 
                                                             <!--<div class="form-group">
                                                                 <label>Do you have a discount or promotional code?</label>

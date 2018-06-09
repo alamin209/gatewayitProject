@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2018 at 11:55 AM
+-- Generation Time: Jun 09, 2018 at 07:39 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -48730,17 +48730,18 @@ CREATE TABLE IF NOT EXISTS `extra_info` (
   `optional_id` int(10) NOT NULL,
   `extra_name` text NOT NULL,
   PRIMARY KEY (`extr_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Dumping data for table `extra_info`
 --
 
 INSERT INTO `extra_info` (`extr_id`, `prod_id`, `optional_id`, `extra_name`) VALUES
-(29, 153, 37, '2525'),
-(30, 154, 38, 'fgf'),
-(31, 155, 39, '25'),
-(32, 155, 39, 'hjjjjjjjjjj');
+(43, 116, 42, 'input is empty'),
+(44, 117, 43, 'kiko'),
+(45, 117, 43, 'new add '),
+(46, 117, 43, 'alamin'),
+(47, 116, 0, 'need to know');
 
 -- --------------------------------------------------------
 
@@ -48753,15 +48754,15 @@ CREATE TABLE IF NOT EXISTS `optional` (
   `prod_id` int(11) NOT NULL,
   `op_extra` varchar(255) NOT NULL,
   PRIMARY KEY (`optional_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `optional`
 --
 
 INSERT INTO `optional` (`optional_id`, `prod_id`, `op_extra`) VALUES
-(37, 153, 'almni'),
-(39, 155, 'ghghgh');
+(42, 116, 'main '),
+(43, 117, 'ollahha');
 
 -- --------------------------------------------------------
 
@@ -48782,7 +48783,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `image` varchar(100) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`prod_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=156 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=118 ;
 
 --
 -- Dumping data for table `product`
@@ -48800,9 +48801,9 @@ INSERT INTO `product` (`prod_id`, `prod_catid`, `prod_subcatid`, `prod_subcatid2
 (32, 56, NULL, NULL, 'Bazar Package For Ramadan', 6590, 'ramadan pac_0011', 20, '<p>Everybody can send special some ones their living Bangladesh.This package is available and best gift for ramadan.This product purchase from local market and super shope such as Meena bazar,Agora,Shawpno,Gig bazar,etc.We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.$$82.4</p>\r\n<p>&nbsp; &nbsp; &nbsp;1.Khejur (Dates)-1 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;2.Deshi chola (Gram)-2 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;3.Chotpotir Boot (Darbi)-2 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;4.Besan (Chickpea flour)-2 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;5.Chira (Rice flake)-1 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;6.Muri (Rice bubble)-2 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;7.Halim mix-2 pac</p>\r\n<p>&nbsp; &nbsp; &nbsp;8.Onion- 5 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;9.Potato- 2 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;10.Cooking oil (Soyabin)-5 liter</p>\r\n<p>&nbsp; &nbsp; &nbsp;11.Suger-5 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;12.Salt- 2 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;13.Lassa semai (250 gm)-2 pac</p>\r\n<p>&nbsp; &nbsp; &nbsp;14.Suji (Semolion)-1 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;15.Brinjal-1 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;16.Lemon-1 dozen</p>\r\n<p>&nbsp; &nbsp; &nbsp;17.Green chilli-250 gm</p>\r\n<p>&nbsp; &nbsp; &nbsp;18.Garlic-500 gm</p>\r\n<p>&nbsp; &nbsp; &nbsp;19.Pulses(Mushur dal)-2 kg</p>\r\n<p>&nbsp; &nbsp; &nbsp;20.Mutton-2 kg</p>\r\n<p>&nbsp;</p>', 'assets/img/product_image/package12.jpg', '2018-05-22 18:12:05'),
 (33, 56, 0, NULL, 'Ifter Package', 2390, 'iftar pac_0012', 20, '<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Everybody can send special some ones their living Bangladesh.This package is available and best gift for ramadan.This product purchase from Star Kabab.We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.$$29.88</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">1 Grill&nbsp; Chicken Tikka Kabab(4 Piceses)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">2.Chicken Reshmi Kabab(4 Piceses)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">3.Speacial Nan(8 piceses)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">4.Coca Cola( 2 litre)</span></p>', 'assets/img/product_image/ramadan_pac.jpg', '2018-05-22 18:14:00'),
 (34, 56, NULL, NULL, 'Bazar Package for Ramadan', 4090, 'ramadan pac_0012', 20, '<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Everybody can send special some ones their living Bangladesh.This package is available and best gift for ramadan.This product purchase for Dhaka super shope such as Meena bazar,Agora,Shawpno,Gig bazar,etc and for other district purchase from local market.We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.$$51.13</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;1.Cooking oil(Soyabin oil)-5 liter</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;2.Mustard oil- 500 gm</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;3.Pulses(Mushur dal)-2 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;4.Polao rice-2 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;5.Deshi chola-2 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;6.Chira (Rice flake)-1 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;7.Besan (Chickpea flour)-1 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;8.<span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Muri (Rice bubble)-2 kg</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;9.Salt-2 kg</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;10.Egg-1 dozen</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;11.</span>Radhuni Spices (powder): 200gm Turmeric</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;12.Radhuni Spices (powder): 200gm Chilli Powder</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;13.Radhuni Spices (powder): 200gm Cumin</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;14.Radhuni Spices (powder): 200gm Coriander</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;15.Potato-3 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;16.Onion-2 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;17.Garlic-500 gm</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;18.Ginger-500 gm</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;19.Brinjal-2 kg</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;20.Lemon-1 dozen</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;21.Corriander- 200 gm</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;22.Green chilli- 250 gm</p>', 'assets/img/product_image/ramadan_grocery_5.jpg', '2018-05-22 18:15:03'),
-(37, 37, 118, NULL, 'Love Cake', 1790, 'baker_011', 20, '<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Love chocolate flavour cake. Price is shown for 1 pound (half Kg) 1kg,2kg,3kg,4kg size cake. But you can order any size cake selecting cake size option above before adding this product to your shopping basket. Same day and urgent order is accepted for Mr. Baker''s Cake.</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;1.1 pound size cake 500gm weight cake for 4 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;2.2 pound size cake 1000gm weight for 8-10 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;3.3 pound size cake 1500gm/1.5kg weight for 10-14 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;4.4 pound size cake 2000gm/2kg weight for 14-20 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;5.6 pound size cake 6000gm/3kg weight for more people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;6.8 pound size cake 8000gm/4kg weight for or more people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;Any size cake will be delivery if you are placing the order urgent or same day after Dhaka time 12pm.</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;Dhaka metro area delivery are free and delivery for other cities ''Shipping Charge'' applies.Transported by air-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;conditioned bus from Dhaka all over Bangladesh.$$22.4</span></p>', 'assets/img/product_image/mr-baker-16.jpg', '2018-05-22 17:48:50'),
+(37, 37, 118, NULL, 'Love Cake', 1790, 'baker_011', 18, '<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Love chocolate flavour cake. Price is shown for 1 pound (half Kg) 1kg,2kg,3kg,4kg size cake. But you can order any size cake selecting cake size option above before adding this product to your shopping basket. Same day and urgent order is accepted for Mr. Baker''s Cake.</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;1.1 pound size cake 500gm weight cake for 4 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;2.2 pound size cake 1000gm weight for 8-10 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;3.3 pound size cake 1500gm/1.5kg weight for 10-14 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;4.4 pound size cake 2000gm/2kg weight for 14-20 people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;5.6 pound size cake 6000gm/3kg weight for more people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;6.8 pound size cake 8000gm/4kg weight for or more people</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;Any size cake will be delivery if you are placing the order urgent or same day after Dhaka time 12pm.</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;Dhaka metro area delivery are free and delivery for other cities ''Shipping Charge'' applies.Transported by air-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;conditioned bus from Dhaka all over Bangladesh.$$22.4</span></p>', 'assets/img/product_image/mr-baker-16.jpg', '2018-06-05 08:08:31'),
 (39, 35, NULL, NULL, 'Deshi fruits basket', 2879, 'fruits package_02', 9, '<p><span style="box-sizing: border-box; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Send seasona Deshi fruits basket</span><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">. Product is available to be delivered at any city of Banglades.We delivery at Hospitals, office versity,market, as well as to the home of you loved-one.$$35.98&nbsp;</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">1.</span><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Papaya 1 pec</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">2.</span><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp;</span><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Guava 1kg</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">3.</span><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Green Apple 1kg</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">4.Malta 1kg</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">5.Banana 1 Dozen ( Available largest)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">6.</span><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Pineapple 1 Pc (Available Large)</span></p>', 'assets/img/product_image/32779366_1392290584250336_2575671366057459712_n.jpg', '2018-06-03 04:25:44'),
-(40, 36, NULL, NULL, 'Pink Rose And Pink Carnation', 2830, 'flower_001', 13, '<div style="box-sizing: border-box; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">20 imported pink roses&nbsp; and 20 pieces of imported pink carnations . You can send this amazing bouquet to your loved ones&nbsp; on their , anniversary, birthday,mothers day,fathers day valentines day,and happy new year.all occasions. Bring more joy to your loved ones on their special occasions by gifting this Pink rose bouquet and pink carnation</div>\r\n<div style="box-sizing: border-box; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">We delivery gift to all cities of Bangladesh and this flower bouquet is available for urgent and same day gift delivery in Dhaka. These flowers are imported from China in Bangladesh.$$35.37&nbsp;</div>', 'assets/img/product_image/32860144_1392290477583680_5686629638701318144_n.jpg', '2018-05-22 17:47:33'),
+(40, 36, NULL, NULL, 'Pink Rose And Pink Carnation', 2830, 'flower_001', 12, '<div style="box-sizing: border-box; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">20 imported pink roses&nbsp; and 20 pieces of imported pink carnations . You can send this amazing bouquet to your loved ones&nbsp; on their , anniversary, birthday,mothers day,fathers day valentines day,and happy new year.all occasions. Bring more joy to your loved ones on their special occasions by gifting this Pink rose bouquet and pink carnation</div>\r\n<div style="box-sizing: border-box; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">We delivery gift to all cities of Bangladesh and this flower bouquet is available for urgent and same day gift delivery in Dhaka. These flowers are imported from China in Bangladesh.$$35.37&nbsp;</div>', 'assets/img/product_image/32860144_1392290477583680_5686629638701318144_n.jpg', '2018-06-05 06:42:37'),
 (41, 52, NULL, NULL, 'Flower,Chocolate and Cake mother''s day', 3296, 'md package_86', 12, '<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp;This package is available for mother''s day,father''s day,anniversary,birthday,any occasion deliver all cities of Bangladesh.$$41.2</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;1.12 pieces fresh red roses with bouquet.</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;2.1 pound/half kg chocolate cake from testy treat.</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;3.16 pieces ferrero rocher chocolate with box.</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Please Like,Comments and Share.Our every honorable customer they are best recommended for purchase.</p>', 'assets/img/product_image/Md-Combo-02_500x500.jpg', '2018-05-22 18:09:31'),
 (47, 50, NULL, NULL, 'Printing mug', 740, 'smug_71', 15, '<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Surprise your loved of all Bangladesh with this special mug with hidden printed photo and message. This personalized gift is appropriate for any occasion such as birthday, valentine''s day, anniversary and as corporate gift. After putting hot water or drinks, it will start showing your picture and massages. Please attach one photo and provide wish for the mug, and then add this product to your shopping basket. Maximum photo size can be 2MB. Please make sure that the photo is of good quality. Please check photo quality before sending us if you have downloaded it from Facebook$$9.25</span></p>', 'assets/img/product_image/Printing-Mug-011_500x500.jpg', '2018-05-22 18:19:43'),
 (48, 56, NULL, NULL, 'Ifter Package', 3272, 'iftar pac_0013', 10, '<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Everybody can send special some ones their living Bangladesh.This package is available and best gift for Ifter ramadan.This product purchase from Star kabab Ifter Box .This package is suitable for 4-5 adults.We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.$$40.90</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">1.Chicken Fry (4 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">2.Chicken Rool (4 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">3.Jali kabab (4 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">4.Piazu (6 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">5.Baguni (6 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">6.Vegetable Roll ( 6 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">7.Chicken Samucha (7 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">8.chola Bot (500 gm)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">9.Fulcuri(shakh Bora) (8 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">10.Chicken Saslic (8 Pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">11.Mineral water (4 pieces =500ml )</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">12.Egg Chop (4 Pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">13.Muri (500gm)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">14 Rooh Afza smal bottle</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">15.Halim (medium size)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">16. jilapi (500gm)</span></p>', 'assets/img/product_image/IFCMB-03_500x500.jpg', '2018-05-22 18:21:39'),
@@ -48826,7 +48827,7 @@ INSERT INTO `product` (`prod_id`, `prod_catid`, `prod_subcatid`, `prod_subcatid2
 (71, 56, 0, NULL, 'Ifter Package', 2490, 'iftar pac_0019', 12, '<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">Everybody can send special some ones their living Bangladesh.This package is available and best gift for Ifter ramadan.This product purchase from Star kabab Ifter Box .This package is suitable for 2-4 adults.We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.$$31.125</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">1.Papaya ( 1 pieces)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">2.Mutton Samucha ( 6 pieces)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">3.Chicken Rool ( 6 pieces)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">4.Mutton Halim ( 1 kg)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">5.Chicken Cutlet ( 6 pieces )</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">6.Faluda ( 6 serve)</span></p>', 'assets/img/product_image/IMG_20180518_162729.jpg', '2018-05-22 18:27:42'),
 (73, 41, 127, NULL, 'Basic panjabi', 3190, 'md panjabi_0301', 10, '<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Best collection basic panjabi liked color from Yellow. A gorgeous choice for anyone at any occasion. Please choose the size from the bottom of this description. Product design same from the picture as a new and currently available product.Selected size will be purchased from Yellow for your order.Send spceial surprise some ones their living Bangladesh.</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Note:Exchange in 10 days</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Color:Purple color</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Size:S/36 for 5''5" height</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Size:M/38 for 5''6" height</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Size:L/40 for 5''7" height</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Size:XL/42 for 5''8" height</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Size:XXL/44 for 5''10"-6'' height&nbsp;</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">$$39.875</span></p>', 'assets/img/product_image/safe_image1.jpg', '2018-05-27 07:39:16'),
 (75, 51, 109, NULL, 'Pizza and Cake', 2990, 'pizza hut pac_081', 20, '<p>Everybody can send special some ones their living Bangladesh.This package is available and best gift for, Urgent gift same day .We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;1.Medium size pane base pizza BBQ tempation from pizza hut</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;2.When you will checkout please provide cake wish.Speacial black forest cake from shumi''s hot cake(weight-800 gm)</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;3.Coca Cola(2 liter)</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;4.7 red rose</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;5.$$37.375</p>', 'assets/img/product_image/pac061.jpg', '2018-05-22 18:48:21'),
-(77, 34, 0, NULL, 'Pizza and Cake', 2990, 'pizza hut pac_081', 20, '<p>Everybody can send special some ones their living Bangladesh.This package is available and best gift for, Urgent gift same day .We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;1.Medium size pane base pizza BBQ tempation from pizza hut</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;2.When you will checkout please provide cake wish.Speacial black forest cake from shumi''s hot cake(weight-800 gm)</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;3.Coca Cola(2 liter)</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;4.7 red rose</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;5.$$37.375</p>', 'assets/img/product_image/pac063.jpg', '2018-05-22 18:45:22'),
+(77, 34, 0, NULL, 'Pizza and Cake', 2990, 'pizza hut pac_081', 19, '<p>Everybody can send special some ones their living Bangladesh.This package is available and best gift for, Urgent gift same day .We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh.</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;1.Medium size pane base pizza BBQ tempation from pizza hut</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;2.When you will checkout please provide cake wish.Speacial black forest cake from shumi''s hot cake(weight-800 gm)</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;3.Coca Cola(2 liter)</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;4.7 red rose</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">&nbsp; &nbsp; &nbsp;5.$$37.375</p>', 'assets/img/product_image/pac063.jpg', '2018-06-07 06:51:30'),
 (78, 35, NULL, NULL, 'Mango with basket', 1475, 'furits package_01', 19, '<p><span style="box-sizing: border-box;">Send seasonal Fruit&nbsp;</span>5 kg Large size Mango in a basket. It is the best fruit when in-season (May - September). Product is available to be delivered at any city of Bangladesh. There will be 4-5 mangos per kg depending on available size in the market. We delivery at Hospitals, office versity,market, as well as to the home of you loved-one.$$18.44&nbsp;</p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">1.Large Size Mango in Basket(5 kg)&nbsp;</p>', 'assets/img/product_image/images.jpg', '2018-05-31 10:26:32'),
 (79, 38, 91, NULL, 'Cream jam', 875, 'bonoful_11', 30, '<p>Creamjam from Bonoful sweets. Price is shown for 1kg of this sweet and you can increase the quantity to order more. This item is available with total order of US$22 or more due its low unit price.Similar product will be delivered from different brand if the brand''s shop is closed for any reason. We deliver sweets to all cities of Bangladesh.$$10.9375</p>', 'assets/img/product_image/CREAM_JAMON.jpg', '2018-05-22 19:21:16'),
 (80, 41, 126, NULL, 'Mens Regular Fit Panjabi', 4390, 'mf panjabi_0302', 10, '<p><span style="box-sizing: border-box;">Best collection basic panjabi liked color from iNFINITY Mga Mall. A gorgeous choice for anyone at any occasion. Please choose the size from the bottom of this description. Product design same from the picture as a new and currently available product.Selected size will be purchased from iNFINITY Mega Mall for your order.Send spceial surprise some ones their living Bangladesh.$$54.88</span></p>', 'assets/img/product_image/32395266_895349200645696_1214447078625771520_n.jpg', '2018-05-27 07:39:58'),
@@ -48860,8 +48861,8 @@ INSERT INTO `product` (`prod_id`, `prod_catid`, `prod_subcatid`, `prod_subcatid2
 (112, 58, 147, NULL, 'Men''s Formal Shirt', 2590, 'mf shirt_0104', 10, '<p>Best&nbsp;<span style="box-sizing: border-box;">quality and brand formal long sleeve shirt from Yellow fashion.This exclusive brand is well known for their mens and womans wear. You can send this gift to surprise anyone any occasions in Bangladesh.$$32.4</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">Color:White</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:15.5" Medium(M)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: inherit;">Size:16" Large(L)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:16.5" Extra Large(XL)</span></p>', 'assets/img/product_image/30738956_10155539392568716_9103529577279389696_n1.jpg', '2018-05-27 08:05:01'),
 (113, 41, 127, NULL, 'Men''s casual shirt', 2790, 'mf shirt_0105', 10, '<p>Best&nbsp;<span style="box-sizing: border-box;">quality and brand formal long sleeve casual shirt from Yellow fashion.This exclusive brand is well known for their mens and womans wear. You can send this gift to surprise anyone any occasions in Bangladesh.$$34.88</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">Color:Red,blue,grey print</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:15.5" Medium(M)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: inherit;">Size:16" Large(L)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:16.5" Extra Large(XL)</span></p>', 'assets/img/product_image/30738306_10155537445023716_7910636624524869632_n.jpg', '2018-05-27 08:15:03'),
 (114, 58, 147, NULL, 'Men''s casual shirt', 2790, 'mf shirt_0105', 10, '<p>Best&nbsp;<span style="box-sizing: border-box;">quality and brand formal long sleeve casual shirt from Yellow fashion.This exclusive brand is well known for their mens and womans wear. You can send this gift to surprise anyone any occasions in Bangladesh.$$34.88</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">Color:Red,blue,gray print</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:15.5" Medium(M)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: inherit;">Size:16" Large(L)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:16.5" Extra Large(XL)</span></p>', 'assets/img/product_image/30738306_10155537445023716_7910636624524869632_n1.jpg', '2018-05-27 08:15:42'),
-(154, 37, 118, NULL, 'alamin', 258, '258', 58, '<p>jhkjkj</p>', 'assets/img/product_image/2.jpg', '2018-06-03 09:21:00'),
-(155, 58, 146, NULL, 'alamin panjabi', 2585, '585', 10, '<p>tytyyyyyyyyyyyy</p>', 'assets/img/product_image/3.jpg', '2018-06-03 09:23:25');
+(116, 58, 146, NULL, 'alamin hossain', 450, 'p12', 1, 'nice to wear', 'assets/img/product_image/13.jpg', '2018-06-09 05:26:51'),
+(117, 58, 146, NULL, '2nmd product', 450, 'p12', 9, 'watch till you want to show', 'assets/img/product_image/3.jpg', '2018-06-09 05:20:44');
 
 -- --------------------------------------------------------
 
@@ -53131,7 +53132,7 @@ INSERT INTO `tbl_customer` (`customer_id`, `firstname`, `lastname`, `email_addre
 (4, 'Masud', 'rana', 'sale@gatewayit.net', 'e10adc3949ba59abbe56e057f20f883e', 'Dhanmondi', '01766666687', '18', 348, '1209', '2018-05-15 09:20:27'),
 (5, 'Masud', 'rana', 'sale@gatewayit.net', 'e10adc3949ba59abbe56e057f20f883e', 'Dhanmondi', '01766666687', '18', 348, '1209', '2018-05-15 09:22:58'),
 (6, 'alamin', '', 'admin@gmail.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', '', '', 0, '', '2018-05-31 10:12:52'),
-(7, 'alamin', '', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '', '', '', 0, '', '2018-05-31 10:14:33');
+(7, 'alamin', '', 'admin@gmail.com', 'd6a9a933c8aafc51e55ac0662b6e4d4a', '', '', '', 0, '', '2018-05-31 10:14:33');
 
 -- --------------------------------------------------------
 
@@ -53161,6 +53162,28 @@ INSERT INTO `tbl_flover_weight` (`fw_id`, `prod_catid`, `flaver`, `weight`, `pri
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_foodcourt`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_foodcourt` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `cat_id` int(3) NOT NULL,
+  `prod_name` varchar(100) NOT NULL,
+  `prod_price` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `tbl_foodcourt`
+--
+
+INSERT INTO `tbl_foodcourt` (`id`, `cat_id`, `prod_name`, `prod_price`) VALUES
+(2, 51, 'part55', 255.6),
+(3, 51, 'alamin', 255);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_grocery`
 --
 
@@ -53170,23 +53193,25 @@ CREATE TABLE IF NOT EXISTS `tbl_grocery` (
   `prod_name` varchar(100) NOT NULL,
   `prod_price` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `tbl_grocery`
 --
 
 INSERT INTO `tbl_grocery` (`id`, `cat_id`, `prod_name`, `prod_price`) VALUES
-(1, 43, 'New Regular Rice', 70),
+(1, 51, 'good', 150),
 (2, 43, 'Beef', 450),
-(3, 43, 'fish', 500),
-(4, 43, 'hilsha fish', 1200),
+(3, 44, 'ertrgiufndgbf', 255),
 (5, 43, 'rui', 550),
 (6, 43, 'meet', 550),
 (7, 43, 'goat', 1000),
 (8, 43, 'hen', 350),
 (9, 43, 'chicken(দেশি মুরগী700-800 gm each)', 720),
-(10, 43, 'chicken( ফার্ম 1.5 kg each )', 440);
+(10, 43, 'chicken( ফার্ম 1.5 kg each )', 440),
+(11, 36, 'gfg', 25),
+(12, 35, 'jkjkjhk', 258),
+(13, 34, 'asa', 25);
 
 -- --------------------------------------------------------
 
@@ -53203,7 +53228,7 @@ CREATE TABLE IF NOT EXISTS `tbl_order` (
   `order_status` varchar(50) NOT NULL DEFAULT 'pending',
   `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `tbl_order`
@@ -53236,7 +53261,17 @@ INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `payment_id`,
 (24, 7, 8, 24, 100, 'pending', '2018-06-03 04:58:56'),
 (25, 7, 8, 25, 100, 'pending', '2018-06-03 05:00:17'),
 (26, 7, 8, 26, 25, 'pending', '2018-06-03 05:01:19'),
-(27, 7, 8, 27, 25, 'pending', '2018-06-03 05:06:03');
+(27, 7, 8, 27, 25, 'pending', '2018-06-03 05:06:03'),
+(28, 7, 9, 28, 2556, 'pending', '2018-06-05 06:40:16'),
+(29, 7, 9, 29, 2556, 'pending', '2018-06-05 06:40:41'),
+(30, 7, 9, 30, 5025.6, 'pending', '2018-06-05 06:42:37'),
+(31, 7, 9, 31, 4068, 'pending', '2018-06-05 08:08:30'),
+(32, 7, 10, 32, 3834, 'pending', '2018-06-07 06:39:29'),
+(33, 7, 10, 33, 511.2, 'pending', '2018-06-07 06:50:52'),
+(34, 7, 10, 34, 2990, 'pending', '2018-06-07 06:51:30'),
+(35, 7, 11, 35, 1800, 'pending', '2018-06-09 05:20:44'),
+(36, 7, 11, 36, 450, 'pending', '2018-06-09 05:26:39'),
+(37, 7, 11, 37, 450, 'pending', '2018-06-09 05:26:51');
 
 -- --------------------------------------------------------
 
@@ -53257,7 +53292,7 @@ CREATE TABLE IF NOT EXISTS `tbl_order_details` (
   `flaver` int(3) DEFAULT NULL,
   `weight` int(3) DEFAULT NULL,
   PRIMARY KEY (`order_details_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `tbl_order_details`
@@ -53283,7 +53318,21 @@ INSERT INTO `tbl_order_details` (`order_details_id`, `order_id`, `product_id`, `
 (17, 24, 150, 25, 'khkh', 'admin', 4, NULL, 'assets/img/product_image/1.jpg', NULL, NULL),
 (18, 25, 150, 25, '', 'admin', 4, '0', 'assets/img/product_image/1.jpg', NULL, NULL),
 (19, 26, 150, 25, '', 'admin', 1, 'khkh', 'assets/img/product_image/1.jpg', NULL, NULL),
-(20, 27, 150, 25, '', 'admin', 1, 'alamin', 'assets/img/product_image/1.jpg', NULL, NULL);
+(20, 27, 150, 25, '', 'admin', 1, 'alamin', 'assets/img/product_image/1.jpg', NULL, NULL),
+(21, 28, 2, 255.6, '', 'part55', 10, '', NULL, NULL, NULL),
+(22, 29, 2, 255.6, '', 'part55', 10, '', NULL, NULL, NULL),
+(23, 30, 40, 2830, '', 'Pink Rose And Pink Carnation', 1, '', 'assets/img/product_image/32860144_1392290477583680_5686629638701318144_n.jpg', NULL, NULL),
+(24, 30, 37, 1790, '', 'Love Cake', 1, '', 'assets/img/product_image/mr-baker-16.jpg', 3, 0),
+(25, 30, 1, 150, '', 'good', 1, '', NULL, NULL, NULL),
+(26, 30, 2, 255.6, '', 'part55', 1, '', NULL, NULL, NULL),
+(27, 31, 2, 255.6, '', 'part55', 5, '', NULL, NULL, NULL),
+(28, 31, 37, 2790, '', 'Love Cake', 1, '', 'assets/img/product_image/mr-baker-16.jpg', 4, 3),
+(29, 32, 2, 255.6, '', 'part55', 15, '', NULL, NULL, NULL),
+(30, 33, 2, 255.6, '', 'part55', 2, '', NULL, NULL, NULL),
+(31, 34, 77, 2990, '', 'Pizza and Cake', 1, '', 'assets/img/product_image/pac063.jpg', NULL, NULL),
+(32, 35, 117, 450, '', '2nmd product', 4, 'new', 'assets/img/product_image/3.jpg', NULL, NULL),
+(33, 36, 116, 450, '', 'alamin hossain', 1, 'input', 'assets/img/product_image/13.jpg', NULL, NULL),
+(34, 37, 116, 450, '', 'alamin hossain', 1, 'input', 'assets/img/product_image/13.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -53297,7 +53346,7 @@ CREATE TABLE IF NOT EXISTS `tbl_payment` (
   `payment_status` varchar(50) NOT NULL DEFAULT 'pending',
   `payment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`payment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `tbl_payment`
@@ -53330,7 +53379,17 @@ INSERT INTO `tbl_payment` (`payment_id`, `payment_type`, `payment_status`, `paym
 (24, 'cash', 'pending', '2018-06-03 04:58:56'),
 (25, 'cash', 'pending', '2018-06-03 05:00:17'),
 (26, 'cash', 'pending', '2018-06-03 05:01:19'),
-(27, 'cash', 'pending', '2018-06-03 05:06:03');
+(27, 'cash', 'pending', '2018-06-03 05:06:03'),
+(28, 'bkash', 'pending', '2018-06-05 06:40:16'),
+(29, 'cash', 'pending', '2018-06-05 06:40:41'),
+(30, 'cash', 'pending', '2018-06-05 06:42:37'),
+(31, 'cash', 'pending', '2018-06-05 08:08:30'),
+(32, 'cash', 'pending', '2018-06-07 06:39:29'),
+(33, 'cash', 'pending', '2018-06-07 06:50:52'),
+(34, 'cash', 'pending', '2018-06-07 06:51:30'),
+(35, 'cash', 'pending', '2018-06-09 05:20:44'),
+(36, 'bkash', 'pending', '2018-06-09 05:26:39'),
+(37, 'cash', 'pending', '2018-06-09 05:26:50');
 
 -- --------------------------------------------------------
 
@@ -53357,22 +53416,26 @@ CREATE TABLE IF NOT EXISTS `tbl_shipping` (
   `rose` varchar(10) NOT NULL,
   `del_time` text NOT NULL,
   `del_date` text NOT NULL,
+  `Greating` text,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`shipping_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `tbl_shipping`
 --
 
-INSERT INTO `tbl_shipping` (`shipping_id`, `name`, `email`, `phone`, `address`, `floor`, `area`, `zip_code`, `country`, `district`, `city`, `relation`, `occassion`, `take_photo`, `give_call`, `rose`, `del_time`, `del_date`, `created_date`) VALUES
-(1, 'mr rahman', 'rahman@yahoo.com', 1682233445, 'feni', 0, '', 0, 18, 351, 'feni', 0, 0, '', '', '', '', '', '2018-03-21 12:19:33'),
-(3, 'ahmed shagor', 'solaman@gmail.com', 1766666684, '112/c', 5, 'dhk', 1212, 18, 351, 'feni', 4, 1, 'yes', 'yes', 'yes', '12:22', '2018-04-15', '2018-04-12 07:35:15'),
-(4, 'mr xyz', 'y@gmail.com', 1766666687, 'firmgate', 2, 'dhk', 1212, 18, 348, 'feni', 4, 1, 'yes', 'yes', 'yes', '17:00', '2018-04-28', '2018-04-28 05:51:59'),
-(5, 'mrs masud`', 'mrs@gmail.com', 1766666687, 'manikgonj', 1, 'manaikgonj', 1212, 18, 373, 'manikganj', 3, 1, 'yes', 'yes', 'yes', '10:00', '2018-05-15', '2018-05-12 07:23:14'),
-(6, 'Roni', 'sheikhmasud.bd71@gmail.com', 1919055733, '51,Green Road', 2, 'Dhanmondi', 1205, 18, 337, 'Dhaka', 4, 2, 'yes', 'yes', 'yes', '17:17', '2018-05-17', '2018-05-15 09:25:33'),
-(7, 'nlkj', 'admin@gmail.com', 5785, 'fghfhf', 1, '78', 1, 13, 245, 'kjkj', 0, 1, 'yes', 'yes', 'yes', '', '2018-04-29', '2018-05-31 10:15:43'),
-(8, 'alamin', 'alamin@gmail.com', 4541, '545', 4545, 'gfgf', 566, 9, 201, 'dhaks', 2, 1, 'yes', 'yes', 'yes', '', '', '2018-06-03 04:25:33');
+INSERT INTO `tbl_shipping` (`shipping_id`, `name`, `email`, `phone`, `address`, `floor`, `area`, `zip_code`, `country`, `district`, `city`, `relation`, `occassion`, `take_photo`, `give_call`, `rose`, `del_time`, `del_date`, `Greating`, `created_date`) VALUES
+(1, 'mr rahman', 'rahman@yahoo.com', 1682233445, 'feni', 0, '', 0, 18, 351, 'feni', 0, 0, '', '', '', '', '', '', '2018-03-21 12:19:33'),
+(3, 'ahmed shagor', 'solaman@gmail.com', 1766666684, '112/c', 5, 'dhk', 1212, 18, 351, 'feni', 4, 1, 'yes', 'yes', 'yes', '12:22', '2018-04-15', '', '2018-04-12 07:35:15'),
+(4, 'mr xyz', 'y@gmail.com', 1766666687, 'firmgate', 2, 'dhk', 1212, 18, 348, 'feni', 4, 1, 'yes', 'yes', 'yes', '17:00', '2018-04-28', '', '2018-04-28 05:51:59'),
+(5, 'mrs masud`', 'mrs@gmail.com', 1766666687, 'manikgonj', 1, 'manaikgonj', 1212, 18, 373, 'manikganj', 3, 1, 'yes', 'yes', 'yes', '10:00', '2018-05-15', '', '2018-05-12 07:23:14'),
+(6, 'Roni', 'sheikhmasud.bd71@gmail.com', 1919055733, '51,Green Road', 2, 'Dhanmondi', 1205, 18, 337, 'Dhaka', 4, 2, 'yes', 'yes', 'yes', '17:17', '2018-05-17', '', '2018-05-15 09:25:33'),
+(7, 'nlkj', 'admin@gmail.com', 5785, 'fghfhf', 1, '78', 1, 13, 245, 'kjkj', 0, 1, 'yes', 'yes', 'yes', '', '2018-04-29', '', '2018-05-31 10:15:43'),
+(8, 'alamin', 'alamin@gmail.com', 4541, '545', 4545, 'gfgf', 566, 9, 201, 'dhaks', 2, 1, 'yes', 'yes', 'yes', '', '', '', '2018-06-03 04:25:33'),
+(9, 'klklk', 'admin@gmail.com', 24545, 'kjhjh', 245, 'ghjdefffffffffffffffff', 4545, 10, 208, 'kjkj', 1, 1, 'yes', 'yes', 'yes', '', '', '', '2018-06-05 06:40:04'),
+(10, 'alamin', 'alamin20192019@gmail.com', 1824225928, '36', 19, 'dhaka', 1350, 11, 232, 'dhaka', 1, 1, 'yes', 'yes', 'yes', '', '2018-06-15', '              need to reach in time                                                   ', '2018-06-07 06:39:21'),
+(11, 'alamin', 'alamin@gmail.com', 1734281017, '39/a,SAVAR', 47, 'hgh', 1340, 12, 244, 'dhaka', 1, 1, 'yes', 'yes', 'yes', '', '2018-06-25', 'eid gift for you .There is no eid for me because i have no salary                    ', '2018-06-09 05:20:34');
 
 -- --------------------------------------------------------
 

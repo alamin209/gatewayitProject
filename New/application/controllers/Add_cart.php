@@ -22,17 +22,15 @@ class Add_cart extends CI_Controller{
 		$qty = $this->input->post('qty');
         $extra = $this->input->post('extra');
 		$data['pricebyweight'] = $this->db->select('price')->from('tbl_flover_weight')->where('fw_id',$weight)->get()->row();
-
 		$pricebyweight = $data['pricebyweight']->price;
-
 		$value = $this->Cart_model->cart_details($cart_id);
 
 		if($weight == 0){
 
 			$sdata = array(
-	            'id'      => $value->prod_id,
-	            'prod_catid'      => $value->prod_catid,
-	            'prod_subcatid'      => $value->prod_subcatid,
+	            'id' => $value->prod_id,
+	            'prod_catid' => $value->prod_catid,
+	            'prod_subcatid' => $value->prod_subcatid,
 	            'flaver'      => $flaver,
 	            'weight'      => $weight,
 	            'qty'     => $qty,
@@ -42,8 +40,6 @@ class Add_cart extends CI_Controller{
 	            'name'    => $value->prod_name,
 	            'image'    => $value->image
 	        );
-
-
 
 		}else{
 
@@ -97,9 +93,9 @@ class Add_cart extends CI_Controller{
 
 
 	public function grocery_cart($ItemID){
-	
+
 		$qty = $this->input->post('qty');
-	
+
 		$value = $this->Cart_model->item_details($ItemID);
 
 		$sdata = array(
@@ -109,6 +105,8 @@ class Add_cart extends CI_Controller{
 			'name'  => $value->prod_name,
 			'price' => $value->prod_price
 		);
+
+
 
 		if($this->cart->insert($sdata)){
 
@@ -122,7 +120,33 @@ class Add_cart extends CI_Controller{
 			echo "fail to add";
 		}
 
-	}//grocery_cart
+	}
+    public function food_cart($ItemID){
+
+        $qty = $this->input->post('qty');
+        $value = $this->Cart_model->Food_details($ItemID);
+        $sdata = array(
+            'id'    => $value->id,
+            'cat_id'    => $value->cat_id,
+            'qty'   => $qty,
+            'name'  => $value->prod_name,
+            'price' => $value->prod_price
+        );
+
+        if($this->cart->insert($sdata)){
+
+            $msg = array();
+            $msg["message"] = "Item Added Successfully ";
+            $this->session->set_userdata($msg);
+            redirect('Foodcourt/Foods');
+
+        }else{
+
+            echo "fail to add";
+        }
+
+    }
+	//grocery_cart
 
 	
 	// public function show_grocery_cart(){

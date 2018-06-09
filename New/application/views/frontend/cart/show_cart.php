@@ -1,3 +1,4 @@
+<div id="example">
 <section id="columns" class="offcanvas-siderbars">
 	<div id="breadcrumb">
 		<ol class="breadcrumb container">
@@ -169,4 +170,5 @@
 
 	</div>
 </section>
+</div>
 <hr>

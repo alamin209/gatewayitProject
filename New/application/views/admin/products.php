@@ -12,7 +12,7 @@
 
                     <?php
                     if($this->session->userdata('message')){
-                        print '<div class="alert alert-success">'.$this->session->userdata('message').'</div';
+                        print '<div class="alert alert-success">'.$this->session->userdata('message').'</div>';
                         $this->session->unset_userdata('message');
 
                     }elseif($this->session->userdata('delete')){
@@ -39,7 +39,7 @@
                                     <!-- <th>Product Description</th> -->
 
                                     <th>Product Quantity</th>
-                                    <th> Extra size details </th>
+                                    <th>  Extra  details </th>
                                     <th>Product Image</th>
                                     <th>Action</th>
                                 </tr>
@@ -65,7 +65,7 @@
                                                         <?php  if( $value->prod_id== $d->prod_id ) { ?>
 
                                                             <tr>
-                                                                <td>Name:Extra <?php echo $d->op_extra ?></td>
+                                                                <td>Name:<?php echo $d->op_extra ?></td>
                                                                 <td>
                                                                     <button  class="btn btn-primary btn-xs"  data-panel-id="<?php echo $d->optional_id?>" onclick="selectid2(this)">
                                                                         <i class="fa fa-pencil"></i>
@@ -79,7 +79,7 @@
                                                             </tr>
                                                 </table>
                                                     <table style="margin-bottom: 4px" class="orderexmple table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4">
-                                                        <button id="addRow"  data-panel-id="<?php echo$value->prod_id ?>" onclick="selectid1(this)" class="btn btn-info" style="z-index: inherit">
+                                                        <button id="addRow"  data-panel-id="<?php echo $value->prod_id ?>" onclick="selectid1(this)" class="btn btn-info" style="z-index: inherit">
                                                             Extra Info <i class="fa fa-plus"></i>
                                                         </button>
                                                     <?php foreach ( $product_e as $e ) { ?>
@@ -93,11 +93,11 @@
                                                                 </td>
 
                                                                 <td>
-                                                                    <button  class="btn btn-primary btn-xs"  data-panel-id="<?php echo $d->optional_id?>" onclick="selectid2(this)">
+                                                                    <button  class="btn btn-primary btn-xs"  data-panel-id="<?php echo $e->extr_id?>" onclick="selectid6(this)">
                                                                         <i class="fa fa-pencil"></i>
                                                                     </button>
 
-                                                                    <button type="button" data-panel-id="<?php echo $d->optional_id?>" onclick="selectid3(this)"class="btn btn-danger btn-xs">
+                                                                    <button type="button" data-panel-id="<?php echo $e->extr_id?>" onclick="selectid5(this)"class="btn btn-danger btn-xs">
 
                                                                         <i class="fa fa-trash-o "></i>
                                                                     </button>
@@ -214,10 +214,11 @@
             if (confirm("are you sure delete this Product ?"))
             {
                 btn = $(x).data('panel-id');
+                ids=<?php echo $d->optional_id?>;
                 $.ajax({
                     type: 'POST',
-                    url:'<?php echo base_url("Product/deleteProduct")?>',
-                    data: {id: btn},
+                    url:'<?php echo base_url("Super_admin/deleteexProduct")?>',
+                    data: {id:btn,ids:ids},
                     cache: false,
                     success: function (data) {
                         alert(' Product deleted Successfully');
@@ -226,12 +227,12 @@
                 });
             }
         }
-        function selectid4(x)
+        function selectid6(x)
         {
             btn = $(x).data('panel-id');
             $.ajax({
                 type:'POST',
-                url:'<?php echo base_url("Product/getproductInfoById")?>',
+                url:'<?php echo base_url("Super_admin/getproductInfoByoptionId")?>',
                 data:{id:btn},
                 cache: false,
                 success:function(data) {

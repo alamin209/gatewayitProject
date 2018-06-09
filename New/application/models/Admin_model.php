@@ -144,7 +144,9 @@ class Admin_model extends CI_Model{
 
     public function deleteOptional($id)
     {
+        $this->db->where('optional_id', $id)->delete('extra_info');
         $this->db->where('optional_id', $id)->delete('optional');
+
 
     }
 
@@ -161,7 +163,37 @@ class Admin_model extends CI_Model{
 
     }
 
-	public function delete_subcategory($id){
+    public function exdeleteOptional($id)
+    {
+
+        $result = $this->db->where('extr_id',$id)->delete('extra_info');
+        return $result;
+    }
+
+    public function exupdateoptional($id, $productSizedata)
+    {
+        $error = $this->db->where('extr_id', $id)->update('extra_info', $productSizedata);
+
+        if (empty($error)) {
+            return $this->db->error();
+        } else {
+
+            return $error = null;
+        }
+
+    }
+
+    public function getOptionalextrProductId($optional_id)
+    {
+        $this->db->from('extra_info');
+        $this->db->where('extr_id', $optional_id)->select('*');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+
+    public function delete_subcategory($id){
 
 		$data = array('subcat_id' => $id);
 		$prev_info = $this->db->get_where("subcategory",$data)->row();

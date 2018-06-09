@@ -43,22 +43,27 @@
 										</td>
 									</tr>
                                     <?php foreach ($product_d  as $d ) {  ?>
-                                <?php if($product_description->prod_id ==$d->prod_id) { ?>z
                                     <tr>
-                                        <th width="44%" height="33" scope="row"><?php echo $d->op_extra ?>:</th>
+                                        <?php if($product_description->prod_id ==$d->prod_id) { ?>
+                                            <th width="44%" height="33" scope="row"><?php echo $d->op_extra ?>:</th>
                                         <td>
 
-                                            <select class="form-control input-height" required id="usertype" name="extra">
+
+                                                    <select class="form-control input-height" required id="usertype" name="extra">
 <!--                                                <option value="">Select Option </option>-->
-                                                <?php foreach ($product_e as $product) { ?>
-                                                    <option value="<?php echo $product->extr_id ?>"<?php if (!empty($d->prod_id) && $product->extr_id==$d->prod_id) echo 'selected="selected"'?>><?php echo $product->extra_name?></option>
-                                                <?php } ?>
+                                                        <?php foreach ($product_e as $product) { ?>
+                                                        <?php if($product->prod_id ==$d->prod_id) { ?>
+                                                    <option value="<?php echo $product->extr_id ?>"><?php echo $product->extra_name?></option>
+                                                            <?php } ?>
+                                                        <?php }  ?>
                                             </select>
 
-                                                <?php  } }   ?>
+
+
                                         </td>
                                     </tr>
 
+                                            <?php   } }  ?>
 
                                     <tr>
 										<th height="33" scope="row">Stock:</th>

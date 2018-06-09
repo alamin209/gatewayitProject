@@ -35,7 +35,7 @@
 
 				<div id="SubCategories">
 					<?php foreach($All_SubCategory as $subcat){ ?>
-					
+
 						<div id="thumbHomePage">
 							<a href="<?= base_url('welcome/ProductBySubID/'.$subcat->subcat_id);?>">
 								<img src="<?= base_url($subcat->photo);?>" height="149" width="168" title="<?= $subcat->subcategory;?>" alt="<?= $subcat->subcategory;?>"/>

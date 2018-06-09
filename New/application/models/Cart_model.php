@@ -17,6 +17,11 @@ class Cart_model extends CI_model{
     	return $query;
     }
 
+    public function Food_details($ItemID){
+
+        $query = $this->db->select('*')->from('tbl_foodcourt')->where('id', $ItemID)->get()->row();
+        return $query;
+    }
 
 }//Cart_model
 

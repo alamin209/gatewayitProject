@@ -122,6 +122,7 @@ class Checkout extends CI_Controller {
 		$data['rose'] = $this->input->post('rose');
 		$data['del_time'] = $this->input->post('del_time');
 		$data['del_date'] = $this->input->post('del_date');
+		$data['Greating'] = $this->input->post('Greating');
 
 		//print_r($data);exit;
 

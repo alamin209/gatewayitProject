@@ -60,6 +60,9 @@
 									<a href="<?php print base_url('Grocery_item/GroceryItems')?>"> <i class="fa fa-tachometer"></i> Grocery Items</a>
 								</li>
 
+                                <li>
+                                    <a href="<?php print base_url('Foodcourt/FoodsItems')?>"> <i class="fa fa-tachometer"></i> Food Court</a>
+                                </li>
 								<li>
 									<a href="<?php print base_url('Super_admin/GraphicalReport')?>"> <i class="fa fa-line-chart"></i> Graphical Report</a>
 								</li>

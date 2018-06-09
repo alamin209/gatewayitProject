@@ -7,7 +7,9 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Admin_model');
 		$this->load->helper('admin_helper');
-	}
+        $this->load->model('FoodCourt_model');
+
+    }
 
 	private function Debug($data){
 		echo "<pre>";
@@ -234,9 +236,20 @@ class Welcome extends CI_Controller {
 		$data['All_Category'] = $this->Admin_model->category();
 		$data['All_SubProduct'] = $this->Admin_model->select_product_by_subid($Subid);
 		$data['SubCat_name'] = $this->db->select('subcategory,subcat_id')->from('subcategory')->where('subcat_id',$Subid)->get()->row();
-		$data['content'] = $this->load->view('frontend/page/product', $data, true);
-		$this->load->view('frontend/index', $data);
-		
+        $data['SubCat_names'] = $this->db->select('subcat_id')->from('subcategory')->where('subcat_id',$Subid)->get()->row();
+
+
+		foreach ($data['SubCat_names']  as $s ) {
+
+            if ($s == 108) {
+                redirect("Foodcourt/Foods");
+            }
+        else
+        {
+            $data['content'] = $this->load->view('frontend/page/product', $data, true);
+            $this->load->view('frontend/index', $data);
+        }
+		}
 	}
 
 

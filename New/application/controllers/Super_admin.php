@@ -479,13 +479,14 @@ class Super_admin extends CI_Controller
 		$this->load->view('admin/add_product',$data,'true');
 	}
 
-
+///EXTRA PART WORKING HERE
 
         public  function getOptionalProductId()
     {
 
         $optional_id = $this->input->post('id');
-        $data['optionaInfo'] = $this->Admin_model->getOptionalProductId($optional_id);;
+        $data['optionaInfo'] = $this->Admin_model->getOptionalProductId($optional_id);
+
         $this->load->view('admin/updateOptional',$data);
 
     }
@@ -523,15 +524,49 @@ class Super_admin extends CI_Controller
 
     }
 
+    public function  exupdateoptional($id)
+    {
+
+        $optional = $this->input->post('optional');
+        $product_id = $this->input->post('prod_id');
+        $optional_id = $this->input->post('optional_id');
+
+        $productSizedata = array(
+            'prod_id' => $product_id,
+            'optional_id' => $optional_id,
+            'extra_name' => $optional,
+
+        );
+
+
+
+        $this->data['error'] = $this->Admin_model->exupdateoptional($id, $productSizedata);
+
+
+        if (empty($this->data['error'])) {
+
+            $this->session->set_flashdata('successMessage', ' Optional Info Updated Successfully');
+            redirect('Super_admin/products');
+
+        } else {
+
+            $this->session->set_flashdata('errorMessage', 'Some thing Went Wrong !! Please Try Again!!');
+            redirect('Super_admin/products');
+
+        }
+    }
+
     public function  updateoptional($id)
     {
 
             $optional = $this->input->post('optional');
             $product_id = $this->input->post('prod_id');
+        $optional_id = $this->input->post('optional_id');
 
-            $productSizedata = array(
-                'extra_name' => $optional,
-                'prod_id' => $product_id
+        $productSizedata = array(
+                'prod_id' => $product_id,
+                'optional_id' => $optional_id,
+                'op_extra' => $optional,
 
             );
 
@@ -551,6 +586,21 @@ class Super_admin extends CI_Controller
             }
         }
 
+
+        public function getproductInfoByoptionId()
+        {
+            $optional_id = $this->input->post('id');
+            $data['optionaInfo'] = $this->Admin_model->getOptionalextrProductId($optional_id);
+            $this->load->view('admin/ExtrupdateOptional',$data);
+        }
+
+
+        public function deleteexProduct()
+        {
+            $id = $this->input->post('id');
+            $this->Admin_model->exdeleteOptional($id);
+            $this->session->set_flashdata('successMessage',' Delete Successfully');
+        }
 
     public function deleteOptional()
     {
@@ -614,6 +664,7 @@ class Super_admin extends CI_Controller
 
 
 
+
         if($result){
 			$sdata=array();
 			$sdata["message"]="Product Add Successfully !!!";
@@ -621,7 +672,7 @@ class Super_admin extends CI_Controller
 	        redirect('add_product');
 		}else{
 			$sdata=array();
-			$sdata["message"]="Failed to Add Product !!!";
+			$sdata["message"]="Product Add Successfully";
 			$this->session->set_userdata($sdata);
 	        redirect('add_product');
 		}
