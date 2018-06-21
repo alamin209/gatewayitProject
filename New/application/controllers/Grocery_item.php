@@ -55,9 +55,7 @@ class Grocery_item extends CI_Controller{
 		$result = $this->Grocery_model->save_grocery_item($data);
 
 		if($result){
-			$sdata=array();
-			$sdata["message"]="Grocery Item Add Successfully !!!";
-			$this->session->set_userdata($sdata);
+            $sdata["message"]="Food Item Add Successfully !!!";
 	        redirect('Grocery_item/add_grocery');
 		}else{
 			$sdata=array();

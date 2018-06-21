@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2018 at 07:39 AM
+-- Generation Time: Jun 21, 2018 at 01:05 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -94,6 +94,25 @@ INSERT INTO `category` (`cat_id`, `category`, `cat_image`) VALUES
 (60, 'Pitha', './assets/admin/cat_image/d5d3eeacbedce0cf4c8bcc8bfada34f2.jpg'),
 (61, 'Electronic gift', './assets/admin/cat_image/EQUIPOS_ELECTRONICOS_1513715388.jpg'),
 (63, 'Teddybear and Softwage', './assets/admin/cat_image/HTB1QSV9LXXXXXX2XXXXq6xXFXXXZ.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `charge`
+--
+
+CREATE TABLE IF NOT EXISTS `charge` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `chrages` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `charge`
+--
+
+INSERT INTO `charge` (`id`, `chrages`) VALUES
+(1, '500');
 
 -- --------------------------------------------------------
 
@@ -48730,7 +48749,7 @@ CREATE TABLE IF NOT EXISTS `extra_info` (
   `optional_id` int(10) NOT NULL,
   `extra_name` text NOT NULL,
   PRIMARY KEY (`extr_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `extra_info`
@@ -48741,7 +48760,10 @@ INSERT INTO `extra_info` (`extr_id`, `prod_id`, `optional_id`, `extra_name`) VAL
 (44, 117, 43, 'kiko'),
 (45, 117, 43, 'new add '),
 (46, 117, 43, 'alamin'),
-(47, 116, 0, 'need to know');
+(47, 116, 0, 'need to know'),
+(48, 118, 44, ''),
+(49, 118, 0, 'dd'),
+(50, 119, 45, '');
 
 -- --------------------------------------------------------
 
@@ -48754,15 +48776,17 @@ CREATE TABLE IF NOT EXISTS `optional` (
   `prod_id` int(11) NOT NULL,
   `op_extra` varchar(255) NOT NULL,
   PRIMARY KEY (`optional_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `optional`
 --
 
 INSERT INTO `optional` (`optional_id`, `prod_id`, `op_extra`) VALUES
+(0, 118, 'hh'),
 (42, 116, 'main '),
-(43, 117, 'ollahha');
+(43, 117, 'ollahha'),
+(45, 119, '');
 
 -- --------------------------------------------------------
 
@@ -48783,7 +48807,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `image` varchar(100) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`prod_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=118 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
 
 --
 -- Dumping data for table `product`
@@ -48820,7 +48844,7 @@ INSERT INTO `product` (`prod_id`, `prod_catid`, `prod_subcatid`, `prod_subcatid2
 (62, 61, 142, NULL, 'Refrigerator WFC-3F5-0401-GD', 42590, 'ele115', 10, '<p><span style="color: #151515; font-family: verdana, geneva, sans-serif;">T</span><span style="color: #151515; font-family: verdana, geneva, sans-serif;">his&nbsp;</span><span style="color: #151515; font-family: verdana, geneva, sans-serif;">Refrigerator</span><span style="color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp;is available upoharbangla stock any body can order for his/her family surprise.This gift are free delivery Dhaka metro and shipping charge applicable for other cities of Bangladesh.</span></p>\r\n<p><span style="color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;1.Type:Direct cool</span></p>\r\n<p><span style="color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;2.Door:Glass door</span></p>\r\n<p><span style="color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;3.Gross volume: 380 liter</span></p>\r\n<p><span style="color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;4.Net volume 365 liter</span></p>\r\n<p><span style="color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;5.Refrigerant R600a</span></p>\r\n<p><span style="color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;6.$$ 532.38</span></p>', 'assets/img/product_image/01-500x500_500x500.jpg', '2018-05-21 17:23:57'),
 (64, 61, 142, NULL, ' Refrigerator WFE-3A2-0101-CR', 32190, 'ele_116', 10, '<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">T</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">his&nbsp;</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">Refrigerator</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp;is available upoharbangla stock any body can order for his/her family surprise.This gift are free delivery Dhaka metro and shipping charge applicable for other cities of Bangladesh.</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;1.Type:Driect cool</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;2.Gross volume:312 liter</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;3.Net volume:290 liter</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;4.$$ 402.4</span></p>', 'assets/img/product_image/p14_500x500.jpg', '2018-05-21 17:23:23'),
 (65, 61, 142, NULL, 'Refrigerator WFC-3D8-0101-GD', 40590, 'ele_117', 10, '<p><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">T</span><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">his&nbsp;</span><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">Refrigerator</span><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp;is available upoharbangla stock any body can order for his/her family surprise .This gift are free delivery Dhaka metro and shipping charge applicable for other cities of Bangladesh.</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;1.Type:Direct cool</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;2.Door:Glass door</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;3.Gross volume: 348 liter</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;4.Net volume 333 liter</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;6.$$ 507.4</span></p>', 'assets/img/product_image/3d8-gd-logo-7_500x500.jpg', '2018-05-21 17:27:27'),
-(66, 61, 140, NULL, ' Refrigerator GN M492GPH', 95390, 'ele_118', 10, '<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">T</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">his&nbsp;</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">Refrigerator</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp;is available upoharbangla stock any body can order for his/her family surprise.This gift are free delivery Dhaka metro and shipping charge applicable for other cities of Bangladesh.</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;1.Capacity:393 liter</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;2.Color:White with flowers</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;3.Compressor warranty:5 years</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;4.Dimension:Hight-1720 mm</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; wide-780 mm</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Depth-730 mm</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;5.$$1192.4</span></p>', 'assets/img/product_image/LG-Refrigerator-GN-M352GPH_500x500.jpg', '2018-05-21 17:45:46');
+(66, 61, 140, NULL, ' Refrigerator GN M492GPH', 95390, 'ele_118', 9, '<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">T</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">his&nbsp;</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">Refrigerator</span><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp;is available upoharbangla stock any body can order for his/her family surprise.This gift are free delivery Dhaka metro and shipping charge applicable for other cities of Bangladesh.</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;1.Capacity:393 liter</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;2.Color:White with flowers</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;3.Compressor warranty:5 years</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;4.Dimension:Hight-1720 mm</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; wide-780 mm</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Depth-730 mm</span></p>\r\n<p><span style="box-sizing: border-box; color: #151515; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;5.$$1192.4</span></p>', 'assets/img/product_image/LG-Refrigerator-GN-M352GPH_500x500.jpg', '2018-06-09 06:21:10');
 INSERT INTO `product` (`prod_id`, `prod_catid`, `prod_subcatid`, `prod_subcatid2`, `prod_name`, `prod_price`, `prod_code`, `prod_qty`, `prod_desc`, `image`, `date`) VALUES
 (68, 61, 140, NULL, 'Refrigerator GN V292RLC', 52990, 'ele_119', 10, '<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">T</span><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">his&nbsp;</span><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">Refrigerator</span><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp;is available upoharbangla stock any body can order for his/her family surprise.This gift are free delivery Dhaka metro and shipping charge applicable for other cities of Bangladesh.</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;1.Capacity:290 liter</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;2.Color:Silver</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;3.Compressor warranty:5 years</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;4.Dimension:Hight-1606 mm</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; wide-537 mm</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Depth-639 mm</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; font-family: verdana, geneva, sans-serif;">&nbsp; &nbsp; &nbsp;5.$$662.4</span></p>', 'assets/img/product_image/LG-Refrigerator-GN-V292RLC_500x5001.jpg', '2018-05-21 17:57:08'),
 (70, 56, NULL, NULL, 'Ifter Package', 2070, 'iftar pac_0018', 15, '<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">Everybody can send special some ones their living Bangladesh.This package is available and best gift for Ifter ramadan.This product purchase from Star kabab Ifter Box .This package is suitable for 2-4 adults.We are&nbsp;commitment to purchase best product for you and your family pleasure.Buy this package feeling hapiness.This package deliver all cities of Bangladesh$$25.87</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">1.Chicken Fry (2 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">2.Chicken Rool (3 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">3.Jali Kabab ( 2 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">4.Piazu ( 2 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">5.Beguni ( 3 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">6.Vegetable Rool ( 2 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">7.Chicken Samucha ( 2 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">8.Chola Boot ( 200 gm)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">9.Zilapi ( 4 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">10.Fulcori ( shakh Bora) (2 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">11.Chicken Saslic ( 2 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">12.Egg Chop ( 1 pieces)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">13.Muri ( 250 gm)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">14.Coca Cola ( 2 litre)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">15.Halim ( medium size)</span></p>\r\n<p><span style="color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;">16.Firni ( medium size)</span></p>', 'assets/img/product_image/4f532d24bafa5b989ed18d8c96c2e8d0.jpg', '2018-05-22 18:25:45'),
@@ -48862,7 +48886,8 @@ INSERT INTO `product` (`prod_id`, `prod_catid`, `prod_subcatid`, `prod_subcatid2
 (113, 41, 127, NULL, 'Men''s casual shirt', 2790, 'mf shirt_0105', 10, '<p>Best&nbsp;<span style="box-sizing: border-box;">quality and brand formal long sleeve casual shirt from Yellow fashion.This exclusive brand is well known for their mens and womans wear. You can send this gift to surprise anyone any occasions in Bangladesh.$$34.88</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">Color:Red,blue,grey print</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:15.5" Medium(M)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: inherit;">Size:16" Large(L)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:16.5" Extra Large(XL)</span></p>', 'assets/img/product_image/30738306_10155537445023716_7910636624524869632_n.jpg', '2018-05-27 08:15:03'),
 (114, 58, 147, NULL, 'Men''s casual shirt', 2790, 'mf shirt_0105', 10, '<p>Best&nbsp;<span style="box-sizing: border-box;">quality and brand formal long sleeve casual shirt from Yellow fashion.This exclusive brand is well known for their mens and womans wear. You can send this gift to surprise anyone any occasions in Bangladesh.$$34.88</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box;">Color:Red,blue,gray print</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:15.5" Medium(M)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: inherit;">Size:16" Large(L)</span></p>\r\n<p style="box-sizing: border-box; margin: 5px 0px 10px; color: #151515; font-family: open_sansregular, Arial, Helvetica, sans-serif;"><span style="box-sizing: border-box; color: #1d2129; font-family: Helvetica, Arial, sans-serif;">Size:16.5" Extra Large(XL)</span></p>', 'assets/img/product_image/30738306_10155537445023716_7910636624524869632_n1.jpg', '2018-05-27 08:15:42'),
 (116, 58, 146, NULL, 'alamin hossain', 450, 'p12', 1, 'nice to wear', 'assets/img/product_image/13.jpg', '2018-06-09 05:26:51'),
-(117, 58, 146, NULL, '2nmd product', 450, 'p12', 9, 'watch till you want to show', 'assets/img/product_image/3.jpg', '2018-06-09 05:20:44');
+(117, 58, 146, NULL, '2nmd''pro(duct)', 450, 'p12', 9, '<p>watch till you want to show</p>', 'assets/img/product_image/3.jpg', '2018-06-11 07:12:47'),
+(119, 37, 118, NULL, 'kaka', 2542, '252', 56, '<p>erer</p>', 'assets/img/product_image/14.jpg', '2018-06-12 07:38:42');
 
 -- --------------------------------------------------------
 
@@ -53119,7 +53144,7 @@ CREATE TABLE IF NOT EXISTS `tbl_customer` (
   `zip_code` varchar(50) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `tbl_customer`
@@ -53131,8 +53156,7 @@ INSERT INTO `tbl_customer` (`customer_id`, `firstname`, `lastname`, `email_addre
 (3, 'masudur', 'rahman', 'masud@hotmail.com', '25f9e794323b453885f5181f1b624d0b', 'dhk', '01766666687', '18', 373, '1212', '2018-04-12 06:41:26'),
 (4, 'Masud', 'rana', 'sale@gatewayit.net', 'e10adc3949ba59abbe56e057f20f883e', 'Dhanmondi', '01766666687', '18', 348, '1209', '2018-05-15 09:20:27'),
 (5, 'Masud', 'rana', 'sale@gatewayit.net', 'e10adc3949ba59abbe56e057f20f883e', 'Dhanmondi', '01766666687', '18', 348, '1209', '2018-05-15 09:22:58'),
-(6, 'alamin', '', 'admin@gmail.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', '', '', 0, '', '2018-05-31 10:12:52'),
-(7, 'alamin', '', 'admin@gmail.com', 'd6a9a933c8aafc51e55ac0662b6e4d4a', '', '', '', 0, '', '2018-05-31 10:14:33');
+(6, '', '', 'alamin5928@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '', '', '', 0, '', '2018-06-21 09:37:46');
 
 -- --------------------------------------------------------
 
@@ -53228,7 +53252,7 @@ CREATE TABLE IF NOT EXISTS `tbl_order` (
   `order_status` varchar(50) NOT NULL DEFAULT 'pending',
   `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=47 ;
 
 --
 -- Dumping data for table `tbl_order`
@@ -53242,36 +53266,8 @@ INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `payment_id`,
 (5, 3, 4, 5, 5200, 'cancle', '2018-04-28 06:09:57'),
 (6, 3, 5, 6, 11550, 'pending', '2018-05-12 07:23:28'),
 (7, 4, 6, 7, 7948, 'pending', '2018-05-15 09:25:48'),
-(8, 7, 7, 8, 75, 'pending', '2018-05-31 10:22:08'),
-(9, 7, 7, 9, 1500, 'pending', '2018-05-31 10:26:31'),
-(10, 7, 8, 10, 2904, 'pending', '2018-06-03 04:25:44'),
-(11, 7, 8, 11, 2904, 'pending', '2018-06-03 04:27:05'),
-(12, 7, 8, 12, 2904, 'pending', '2018-06-03 04:27:23'),
-(13, 7, 8, 13, 2904, 'pending', '2018-06-03 04:29:10'),
-(14, 7, 8, 14, 2904, 'pending', '2018-06-03 04:29:22'),
-(15, 7, 8, 15, 2904, 'pending', '2018-06-03 04:34:38'),
-(16, 7, 8, 16, 2904, 'pending', '2018-06-03 04:34:52'),
-(17, 7, 8, 17, 2904, 'pending', '2018-06-03 04:36:16'),
-(18, 7, 8, 18, 100, 'pending', '2018-06-03 04:50:01'),
-(19, 7, 8, 19, 100, 'pending', '2018-06-03 04:50:35'),
-(20, 7, 8, 20, 100, 'pending', '2018-06-03 04:57:37'),
-(21, 7, 8, 21, 100, 'pending', '2018-06-03 04:58:19'),
-(22, 7, 8, 22, 100, 'pending', '2018-06-03 04:58:23'),
-(23, 7, 8, 23, 100, 'pending', '2018-06-03 04:58:36'),
-(24, 7, 8, 24, 100, 'pending', '2018-06-03 04:58:56'),
-(25, 7, 8, 25, 100, 'pending', '2018-06-03 05:00:17'),
-(26, 7, 8, 26, 25, 'pending', '2018-06-03 05:01:19'),
-(27, 7, 8, 27, 25, 'pending', '2018-06-03 05:06:03'),
-(28, 7, 9, 28, 2556, 'pending', '2018-06-05 06:40:16'),
-(29, 7, 9, 29, 2556, 'pending', '2018-06-05 06:40:41'),
-(30, 7, 9, 30, 5025.6, 'pending', '2018-06-05 06:42:37'),
-(31, 7, 9, 31, 4068, 'pending', '2018-06-05 08:08:30'),
-(32, 7, 10, 32, 3834, 'pending', '2018-06-07 06:39:29'),
-(33, 7, 10, 33, 511.2, 'pending', '2018-06-07 06:50:52'),
-(34, 7, 10, 34, 2990, 'pending', '2018-06-07 06:51:30'),
-(35, 7, 11, 35, 1800, 'pending', '2018-06-09 05:20:44'),
-(36, 7, 11, 36, 450, 'pending', '2018-06-09 05:26:39'),
-(37, 7, 11, 37, 450, 'pending', '2018-06-09 05:26:51');
+(45, 7, 15, 104, 650, 'pending', '2018-06-20 11:34:09'),
+(46, 7, 15, 105, 1400, 'cancle', '2018-06-20 11:46:09');
 
 -- --------------------------------------------------------
 
@@ -53292,7 +53288,7 @@ CREATE TABLE IF NOT EXISTS `tbl_order_details` (
   `flaver` int(3) DEFAULT NULL,
   `weight` int(3) DEFAULT NULL,
   PRIMARY KEY (`order_details_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `tbl_order_details`
@@ -53312,27 +53308,9 @@ INSERT INTO `tbl_order_details` (`order_details_id`, `order_id`, `product_id`, `
 (11, 7, 28, 150, '', 'Chicken', 1, NULL, 'assets/img/product_image/images_(49).jpg', NULL, NULL),
 (12, 8, 150, 25, '', 'admin', 3, NULL, 'assets/img/product_image/1.jpg', NULL, NULL),
 (13, 9, 78, 1475, '', 'Mango with basket', 1, NULL, 'assets/img/product_image/images.jpg', NULL, NULL),
-(14, 9, 150, 25, '', 'admin', 1, NULL, 'assets/img/product_image/1.jpg', NULL, NULL),
-(15, 10, 39, 2879, '', 'Deshi fruits basket', 1, NULL, 'assets/img/product_image/32779366_1392290584250336_2575671366057459712_n.jpg', NULL, NULL),
-(16, 10, 150, 25, '', 'admin', 1, NULL, 'assets/img/product_image/1.jpg', NULL, NULL),
-(17, 24, 150, 25, 'khkh', 'admin', 4, NULL, 'assets/img/product_image/1.jpg', NULL, NULL),
-(18, 25, 150, 25, '', 'admin', 4, '0', 'assets/img/product_image/1.jpg', NULL, NULL),
-(19, 26, 150, 25, '', 'admin', 1, 'khkh', 'assets/img/product_image/1.jpg', NULL, NULL),
-(20, 27, 150, 25, '', 'admin', 1, 'alamin', 'assets/img/product_image/1.jpg', NULL, NULL),
-(21, 28, 2, 255.6, '', 'part55', 10, '', NULL, NULL, NULL),
-(22, 29, 2, 255.6, '', 'part55', 10, '', NULL, NULL, NULL),
-(23, 30, 40, 2830, '', 'Pink Rose And Pink Carnation', 1, '', 'assets/img/product_image/32860144_1392290477583680_5686629638701318144_n.jpg', NULL, NULL),
-(24, 30, 37, 1790, '', 'Love Cake', 1, '', 'assets/img/product_image/mr-baker-16.jpg', 3, 0),
 (25, 30, 1, 150, '', 'good', 1, '', NULL, NULL, NULL),
-(26, 30, 2, 255.6, '', 'part55', 1, '', NULL, NULL, NULL),
-(27, 31, 2, 255.6, '', 'part55', 5, '', NULL, NULL, NULL),
-(28, 31, 37, 2790, '', 'Love Cake', 1, '', 'assets/img/product_image/mr-baker-16.jpg', 4, 3),
-(29, 32, 2, 255.6, '', 'part55', 15, '', NULL, NULL, NULL),
-(30, 33, 2, 255.6, '', 'part55', 2, '', NULL, NULL, NULL),
-(31, 34, 77, 2990, '', 'Pizza and Cake', 1, '', 'assets/img/product_image/pac063.jpg', NULL, NULL),
-(32, 35, 117, 450, '', '2nmd product', 4, 'new', 'assets/img/product_image/3.jpg', NULL, NULL),
-(33, 36, 116, 450, '', 'alamin hossain', 1, 'input', 'assets/img/product_image/13.jpg', NULL, NULL),
-(34, 37, 116, 450, '', 'alamin hossain', 1, 'input', 'assets/img/product_image/13.jpg', NULL, NULL);
+(44, 45, 1, 650, '', 'good', 1, '', NULL, NULL, NULL),
+(45, 46, 2, 450, '', 'Beef', 2, '', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -53346,7 +53324,7 @@ CREATE TABLE IF NOT EXISTS `tbl_payment` (
   `payment_status` varchar(50) NOT NULL DEFAULT 'pending',
   `payment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`payment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=106 ;
 
 --
 -- Dumping data for table `tbl_payment`
@@ -53389,7 +53367,75 @@ INSERT INTO `tbl_payment` (`payment_id`, `payment_type`, `payment_status`, `paym
 (34, 'cash', 'pending', '2018-06-07 06:51:30'),
 (35, 'cash', 'pending', '2018-06-09 05:20:44'),
 (36, 'bkash', 'pending', '2018-06-09 05:26:39'),
-(37, 'cash', 'pending', '2018-06-09 05:26:50');
+(37, 'cash', 'pending', '2018-06-09 05:26:50'),
+(38, 'cash', 'pending', '2018-06-09 06:21:10'),
+(39, 'cash', 'pending', '2018-06-20 06:20:09'),
+(40, 'cash', 'pending', '2018-06-20 06:34:16'),
+(41, 'cash', 'pending', '2018-06-20 06:51:33'),
+(42, 'cash', 'pending', '2018-06-20 09:39:30'),
+(43, 'cash', 'pending', '2018-06-20 09:40:14'),
+(44, 'cash', 'pending', '2018-06-20 09:45:31'),
+(45, 'cash', 'pending', '2018-06-20 09:47:39'),
+(46, 'cash', 'pending', '2018-06-20 09:52:58'),
+(47, 'cash', 'pending', '2018-06-20 09:56:32'),
+(48, 'cash', 'pending', '2018-06-20 09:57:52'),
+(49, 'cash', 'pending', '2018-06-20 09:59:59'),
+(50, 'cash', 'pending', '2018-06-20 10:00:37'),
+(51, 'cash', 'pending', '2018-06-20 10:00:46'),
+(52, 'cash', 'pending', '2018-06-20 10:05:33'),
+(53, 'cash', 'pending', '2018-06-20 10:06:29'),
+(54, 'cash', 'pending', '2018-06-20 10:07:49'),
+(55, 'cash', 'pending', '2018-06-20 10:08:09'),
+(56, 'cash', 'pending', '2018-06-20 10:09:09'),
+(57, 'cash', 'pending', '2018-06-20 10:09:19'),
+(58, 'cash', 'pending', '2018-06-20 10:10:08'),
+(59, 'cash', 'pending', '2018-06-20 10:11:27'),
+(60, 'cash', 'pending', '2018-06-20 10:12:01'),
+(61, 'cash', 'pending', '2018-06-20 10:13:26'),
+(62, 'cash', 'pending', '2018-06-20 10:13:57'),
+(63, 'cash', 'pending', '2018-06-20 10:14:15'),
+(64, 'cash', 'pending', '2018-06-20 10:15:53'),
+(65, 'cash', 'pending', '2018-06-20 10:17:19'),
+(66, 'cash', 'pending', '2018-06-20 10:17:35'),
+(67, 'cash', 'pending', '2018-06-20 10:20:17'),
+(68, 'cash', 'pending', '2018-06-20 10:21:20'),
+(69, 'cash', 'pending', '2018-06-20 10:22:04'),
+(70, 'cash', 'pending', '2018-06-20 10:22:53'),
+(71, 'cash', 'pending', '2018-06-20 10:24:00'),
+(72, 'cash', 'pending', '2018-06-20 10:25:48'),
+(73, 'cash', 'pending', '2018-06-20 10:26:07'),
+(74, 'cash', 'pending', '2018-06-20 10:27:24'),
+(75, 'cash', 'pending', '2018-06-20 10:27:45'),
+(76, 'cash', 'pending', '2018-06-20 10:28:16'),
+(77, 'cash', 'pending', '2018-06-20 10:28:25'),
+(78, 'cash', 'pending', '2018-06-20 10:28:46'),
+(79, 'cash', 'pending', '2018-06-20 10:28:55'),
+(80, 'cash', 'pending', '2018-06-20 10:31:22'),
+(81, 'cash', 'pending', '2018-06-20 10:31:46'),
+(82, 'cash', 'pending', '2018-06-20 10:33:28'),
+(83, 'cash', 'pending', '2018-06-20 10:33:54'),
+(84, 'cash', 'pending', '2018-06-20 10:35:30'),
+(85, 'cash', 'pending', '2018-06-20 10:36:35'),
+(86, 'cash', 'pending', '2018-06-20 10:36:53'),
+(87, 'cash', 'pending', '2018-06-20 10:37:53'),
+(88, 'cash', 'pending', '2018-06-20 10:38:23'),
+(89, 'cash', 'pending', '2018-06-20 10:38:33'),
+(90, 'cash', 'pending', '2018-06-20 10:38:46'),
+(91, 'cash', 'pending', '2018-06-20 10:40:42'),
+(92, 'cash', 'pending', '2018-06-20 10:43:40'),
+(93, 'cash', 'pending', '2018-06-20 10:44:17'),
+(94, 'cash', 'pending', '2018-06-20 10:44:33'),
+(95, 'cash', 'pending', '2018-06-20 10:45:06'),
+(96, 'cash', 'pending', '2018-06-20 10:54:55'),
+(97, 'cash', 'pending', '2018-06-20 10:55:10'),
+(98, 'cash', 'pending', '2018-06-20 11:03:56'),
+(99, 'cash', 'pending', '2018-06-20 11:04:41'),
+(100, 'cash', 'pending', '2018-06-20 11:12:23'),
+(101, 'cash', 'pending', '2018-06-20 11:15:23'),
+(102, 'cash', 'pending', '2018-06-20 11:15:46'),
+(103, 'cash', 'pending', '2018-06-20 11:20:37'),
+(104, 'cash', 'pending', '2018-06-20 11:34:09'),
+(105, 'cash', 'pending', '2018-06-20 11:46:09');
 
 -- --------------------------------------------------------
 
@@ -53419,7 +53465,7 @@ CREATE TABLE IF NOT EXISTS `tbl_shipping` (
   `Greating` text,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`shipping_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `tbl_shipping`
@@ -53435,7 +53481,11 @@ INSERT INTO `tbl_shipping` (`shipping_id`, `name`, `email`, `phone`, `address`, 
 (8, 'alamin', 'alamin@gmail.com', 4541, '545', 4545, 'gfgf', 566, 9, 201, 'dhaks', 2, 1, 'yes', 'yes', 'yes', '', '', '', '2018-06-03 04:25:33'),
 (9, 'klklk', 'admin@gmail.com', 24545, 'kjhjh', 245, 'ghjdefffffffffffffffff', 4545, 10, 208, 'kjkj', 1, 1, 'yes', 'yes', 'yes', '', '', '', '2018-06-05 06:40:04'),
 (10, 'alamin', 'alamin20192019@gmail.com', 1824225928, '36', 19, 'dhaka', 1350, 11, 232, 'dhaka', 1, 1, 'yes', 'yes', 'yes', '', '2018-06-15', '              need to reach in time                                                   ', '2018-06-07 06:39:21'),
-(11, 'alamin', 'alamin@gmail.com', 1734281017, '39/a,SAVAR', 47, 'hgh', 1340, 12, 244, 'dhaka', 1, 1, 'yes', 'yes', 'yes', '', '2018-06-25', 'eid gift for you .There is no eid for me because i have no salary                    ', '2018-06-09 05:20:34');
+(11, 'alamin', 'alamin@gmail.com', 1734281017, '39/a,SAVAR', 47, 'hgh', 1340, 12, 244, 'dhaka', 1, 1, 'yes', 'yes', 'yes', '', '2018-06-25', 'eid gift for you .There is no eid for me because i have no salary                    ', '2018-06-09 05:20:34'),
+(12, 'ygrtr', 'admin@gmail.com', 454, 'jhlkjl', 3, 'p;l;l', 123, 17, 327, 'dgha', 1, 1, 'yes', 'yes', 'yes', '', '', '                                                                  ', '2018-06-20 05:56:20'),
+(13, 'alamin', 'alamin20192019@gmail.com', 1824225927, 'dhaka', 4, 'gfug', 2, 16, 310, 'dhaka', 1, 2, 'yes', 'yes', 'yes', '', '', '                             good                                     ', '2018-06-20 09:42:08'),
+(14, 'iuiu', 'alamin258000@gmail.com', 5288, 'gfdtgfr', 3, 'ghgh', 435, 15, 295, 'djala', 1, 1, 'yes', 'yes', 'yes', '', '', '                                                                  ', '2018-06-20 10:53:40'),
+(15, 'admin', 'alamin258000@gmail.com', 15999, 'no ', 1, 'ghg', 1350, 11, 232, 'ghgh', 2, 1, 'yes', 'yes', 'yes', '', '', '                                                                  ', '2018-06-20 11:15:14');
 
 -- --------------------------------------------------------
 

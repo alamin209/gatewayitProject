@@ -48,6 +48,7 @@
                 </div>
 
                 <div class="innerproductarea">
+                    <p style="color:red ; text-align:right"> 500tk   Charge will be added  </p>
                     <table width="100%" border="1" >
                         <tbody>
 

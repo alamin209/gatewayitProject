@@ -7,7 +7,7 @@
                     <div class="bannercontainer banner-boxed" style="padding: 5px 0px;margin: 0px 0px;">
                         <div id="content" class="product-detail">
                             <div class="product-info">
-                                <div class="row">           
+                                <div class="row">
                                     <div class="col-md-12">
 										<div class="panel panel-primary" >
                                             <div class="panel-heading"> <i class="fa fa-star" aria-hidden="true"></i>
@@ -59,7 +59,7 @@
 																							if(empty($value['image'])){
 																								echo '--';
 																							}else{ ?>
-																							
+
 																							<a href="">
 																								<img src="<?= base_url($value['image']);?>" alt="<?= $value['name'];?>" title="<?= $value['name'];?>" height="80px" width="50px" />
 																							</a>
@@ -69,11 +69,11 @@
 																					if(empty($value['flaver'])){
 																						echo '--';
 																					}else{
-																					
+
 																						$flaver = $this->db->select('*')->from('tbl_flover_weight')->where('fw_id',$value['flaver'])->get()->row();
 
 																						$weight = $this->db->select('*')->from('tbl_flover_weight')->where('fw_id',$value['weight'])->get()->row();
-																						
+
 																					}
 																					?>
 																					<td class="name" data-label="Product Name">
@@ -84,7 +84,7 @@
 																							}else{
 																								echo "";
 																							}
-																							
+
 																							if(!empty($weight)){
 																								echo $weight->weight.'<br>';
 																							}else{
@@ -111,21 +111,21 @@
 																						?>
 																					</td>
 																				</tr>
-																				<?php } ?>                  
+																				<?php } ?>
 																			</tbody>
 																		</table>
 																	</div>
-                                                                  
+
                                                                     <div class="row">
-                                                                        <div  class="col-lg-9 col-md-9">  
-                                                                            <div class="buttons clearfix">        
+                                                                        <div  class="col-lg-9 col-md-9">
+                                                                            <div class="buttons clearfix">
                                                                             </div>
-                                                                        </div>  
-                                                                        
+                                                                        </div>
+
                                                                         <div class="col-lg-3 col-md-3">
                                                                             <div class="cart-total clearfix">
                                                                                 <table id="total">
-                                                                                    
+
                                                                                     <tr>
 																						<td class="right"><b>Sub Total:</b>&nbsp;</td>
                                                                                         <td class="right pull-right">
@@ -144,11 +144,8 @@
                                                                                             <?php
                                                                                                 //shipping cost
 																								$shipping_id = $this->session->userdata('shipping_id');
-																								
 																								$query = $this->db->select('*')->from('tbl_shipping')->where('shipping_id',$shipping_id)->get()->row();
-																								
 																								$district_id = $query->district;
-																								
 																								$row = $this->db->select('*')->from('states')->where('id',$district_id)->get()->row();
 																								echo $shipping_cost = $row->shipping_cost.' tk';
                                                                                             ?>
@@ -160,20 +157,56 @@
                                                                                             <?php
                                                                                                 $g_total = $this->cart->total();
                                                                                                 $sdata=array();
-                                                                                                $sdata['g_total']=$g_total;
-                                                                                                $this->session->set_userdata($sdata);
-                                                                                                echo $shipping_cost+$g_total.' tk';
+
+//                                                                                                $sdata['g_totalas']=$g_total+500;
+//                                                                                                $this->session->set_userdata($sdata);
+//                                                                                                echo $shipping_cost+$g_total.' tk';
+                                                                                            foreach ( $showcharge  as $c ) {
+                                                                                                $contentss = $this->cart->contents();
+
+                                                                                                $totals=0;
+                                                                                                $last_key = end(array_keys($contentss));
+                                                                                                foreach ($contentss as $values) {
+
+                                                                                                    $name = $this->db->select('*')->from('tbl_grocery')->where('prod_name', $values['name'])->get()->row();
+
+                                                                                                    $names = $this->db->select('*')->from('tbl_foodcourt')->where('prod_name', $values['name'])->get()->row();
+
+
+                                                                                                    if(!empty($name) ||!empty($names) ){
+
+                                                                                                        $charges = $c->chrages;
+                                                                                                        $this->session->set_userdata($sdata);
+                                                                                                        $totals= $g_total + $charges+$shipping_cost;
+
+                                                                                                    }else{
+                                                                                                        $totals =$g_total+$shipping_cost;
+
+                                                                                                    }
+
+
+
+
+
+                                                                                                }
+
+                                                                                            }
+
+
                                                                                             ?>
+                                                                                            <?php  echo $sdata['g_total']= $totals;
+                                                                                             $this->session->set_userdata($sdata);
+                                                                                            ?>Tk
                                                                                         </td>
                                                                                     </tr>
 
                                                                                 </table>
                                                                             </div>
-                                                                        </div>     
+                                                                        </div>
                                                                     </div>
-                                                                </div>  
-                                                            </div>  
-                                                        </section> 
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
 
                                                     <div class="col-md-12">
@@ -188,15 +221,15 @@
                                         </div><!-- panel-default -->
 
                                     </div><!-- col-md-8 -->
-                        
+
                                 </div><!-- row -->
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
-            <!-- Checkout end -->        
-        </div>  
+            <!-- Checkout end -->
+        </div>
     </div>
 </section>

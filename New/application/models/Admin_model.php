@@ -45,6 +45,13 @@ class Admin_model extends CI_Model{
 
 	}
 
+	public function charge()
+    {
+        $query = $this->db->select('*')->from('charge')->get()->result();
+        return $query;
+
+    }
+
 	public function update_slide_info($data,$slideID){
 
 		$result = $this->db->where('slide_id',$slideID)->update('tbl_slide',$data);
@@ -322,11 +329,14 @@ class Admin_model extends CI_Model{
 	public function select_order_details_info_by_id($order_id){
 
 		$query = $this->db->select('*')->from('tbl_order_details')->where('order_id',$order_id)->get()->result();
-				 
 		return $query;
 
 	}
 
+    public function select_order_by_id($order_id){
+        $query = $this->db->select('*')->from('tbl_order')->where('order_id',$order_id)->get()->result();
+        return $query;
+    }
 	public function select_all_product_info(){
 
 		$query = $this->db->select('*')->from('product')->limit(3)->get()->result();

@@ -5,7 +5,7 @@
 </style>
 
 <div class="container">
-	<div class="row">
+    <div class="row">
 		<div class="col-md-12">
 			<div class="topnavarea">
 				<a href="<?= base_url('welcome/');?>" title="HomePage">Home</a> /<a href="#" class='txtLocation'>Grocery Bazar</a>
@@ -15,6 +15,7 @@
 </div>
 
 <div class="container">
+
 	<div class="row">
 		<div class="col-md-12">
 			<div class="leftmenuarea menudisplay">
@@ -28,14 +29,16 @@
 					<div class="headtext">Grocery Items</div>
 				</div>
 
-				<?php
-                    $message = $this->session->userdata('message');
-                    if (isset($message)) {
-                       // echo '<div class="alert alert-success">' . $message . "</div>";
-                        echo '<script>alert("Item Added");</script>';
-                        $this->session->unset_userdata('message');
-                    }
+                <?php
+                if($this->session->userdata('message')){
+                    print '<div class="alert alert-success">'.$this->session->userdata('message').'</div>';
+                    $this->session->unset_userdata('message');
 
+                }elseif($this->session->userdata('delete')){
+                    print '<div class="alert alert-danger">'.$this->session->userdata('delete').'</div>';
+                    $this->session->unset_userdata('delete');
+
+                }
                 ?>
 
 				<div class="navigationarea">
@@ -45,7 +48,10 @@
 				</div>
 
 				<div class="innerproductarea">
-					<table width="100%" border="1" >
+
+                    <p style="color:red ; text-align:right"> 500tk   Charge will be added  </p>
+
+                    <table width="100%" border="1" >
 						<tbody>
 
 							<tr class="listtexttop">
@@ -54,7 +60,7 @@
 								<td bgcolor="#ff6a00">Quantity</td>
 								<td bgcolor="#ff6a00">Add</td>
 							</tr>
-
+<!--                        --><?php //    $this->session->userdata('views',1);  ?>
 							<?php
 								foreach($Grocery_items as $items){
 							?>

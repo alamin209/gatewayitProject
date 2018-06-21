@@ -5,6 +5,11 @@
 	}
 </script>
 
+
+
+
+
+<p> 500tk   Charge will be added  </p>
 <form name="depositeform" action="<?= base_url('add_cart/add_grocary/');?>" method="post">
 
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">

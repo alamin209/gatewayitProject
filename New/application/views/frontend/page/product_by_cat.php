@@ -37,7 +37,7 @@
 						<div style="float:right;width:50%;text-align:right !important;padding: 18px 0 0 0;margin: 0 0 0 0;">
 							Sort By: 
 							<select class="dropDown" id="sortMethod" class="textbox"   name="categoryid">
-							  <option value="">Default</option>
+							  <option value="df">Default</option>
 							  <option value="low">Price - Low to High</option>
 							  <option value="high">Price - High to Low</option>
 							  <option value="code">Product Code</option>

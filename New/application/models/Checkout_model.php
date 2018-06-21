@@ -34,7 +34,6 @@ class Checkout_model extends CI_Model{
 		$odata['shipping_id'] = $this->session->userdata('shipping_id');
 		$odata['payment_id'] = $this->session->userdata('payment_id');
 		$odata['order_total'] = $this->session->userdata('g_total');
-		
 		$this->db->insert('tbl_order',$odata);
 		$order_id = $this->db->insert_id();
 		

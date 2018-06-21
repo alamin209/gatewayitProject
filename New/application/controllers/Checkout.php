@@ -53,7 +53,7 @@ class Checkout extends CI_Controller {
 			$data['footer_bottom'] = 0;
 			$data['title'] = "Checkout Details";
 			$data['content'] = $this->load->view('frontend/checkout/checkout', '', true);
-			$this->load->view('frontend/index', $data);	
+			$this->load->view('frontend/index', $data);
 
         } else {
 
@@ -69,7 +69,7 @@ class Checkout extends CI_Controller {
 			$data['zip_code'] = $this->input->post('zip_code');
 
 			$customer_id = $this->Checkout_model->save_customer_info($data);
-			
+
 			if($customer_id){
 
 				$sdata=array();
@@ -86,7 +86,7 @@ class Checkout extends CI_Controller {
 				$this->session->set_userdata($sdata);
 				redirect('Checkout/CustomerRegistration');
 			}
-            
+
         }
 		
 	}
@@ -149,7 +149,8 @@ class Checkout extends CI_Controller {
 		$data['testimonial'] = 0;
 		$data['footer_bottom'] = 0;
 		$data['title'] = "Checkout | Payment Details";
-		$data['content'] = $this->load->view('frontend/checkout/payment_form', '', true);
+        $data['showcharge']=$this->Admin_model->charge();
+        $data['content'] = $this->load->view('frontend/checkout/payment_form', $data, true);
 		$this->load->view('frontend/index', $data);
 	}
 	
@@ -158,15 +159,14 @@ class Checkout extends CI_Controller {
 		$payment = $this->input->post('payment');
 
 		if($payment == 'cash'){
-			
 			$pdata=array();
 			$pdata['payment_type'] = $payment;
 			$payment_id = $this->Checkout_model->save_payment_info($pdata);
-			
+
+
 			$sdata=array();
 			$sdata['payment_id'] = $payment_id;
 			$this->session->set_userdata($sdata);
-			
 			$this->Checkout_model->save_order_info();
 
 			redirect('add_cart/remove_all');

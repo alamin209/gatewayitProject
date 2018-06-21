@@ -43,8 +43,12 @@
 										</td>
 									</tr>
                                     <?php foreach ($product_d  as $d ) {  ?>
+
+
                                     <tr>
                                         <?php if($product_description->prod_id ==$d->prod_id) { ?>
+                                          <?php   if( !empty($d->op_extra)) {  ?>
+
                                             <th width="44%" height="33" scope="row"><?php echo $d->op_extra ?>:</th>
                                         <td>
 
@@ -63,7 +67,13 @@
                                         </td>
                                     </tr>
 
-                                            <?php   } }  ?>
+                                            <?php   }
+                                        else
+                                        {
+                                           echo "";
+                                        }
+                                        }
+                                            }  ?>
 
                                     <tr>
 										<th height="33" scope="row">Stock:</th>

@@ -7,7 +7,9 @@ class Add_cart extends CI_Controller{
 		parent::__construct();
 		$this->load->model('Cart_model');
 		$this->load->helper('admin_helper');
-	}
+        $this->load->model('Admin_model');
+
+    }
 
 	private function Debug($data){
 		echo "<pre>";
@@ -16,7 +18,7 @@ class Add_cart extends CI_Controller{
 	}
 
 	public function cart($cart_id){
-
+        $this->load->library('cart');
 		$flaver = $this->input->post('flaver');
 		$weight = $this->input->post('weight');
 		$qty = $this->input->post('qty');
@@ -65,9 +67,11 @@ class Add_cart extends CI_Controller{
         // );
 
 		//$this->Debug($sdata);
-		//$this->cart->product_name_rules = '^.';
+		$this->cart->product_name_rules = '^.';
+//        $this->cart->product_name_rules = '\.\:\-_ a-z0-9\\\(\)\/,';
 
-       if($this->cart->insert($sdata)){
+
+        if($this->cart->insert($sdata)){
 
 
             redirect('show_cart');
@@ -86,8 +90,9 @@ class Add_cart extends CI_Controller{
 		$data['testimonial'] = 0;
 		$data['footer_bottom'] = 0;
 		$data['title'] = "Cart Details";
-		$data['content'] = $this->load->view('frontend/cart/show_cart', '', true);
-		$this->load->view('frontend/index', $data);	
+		$data['showcharge']=$this->Admin_model->charge();
+		$data['content'] = $this->load->view('frontend/cart/show_cart', $data, true);
+        $this->load->view('frontend/index', $data);
 
 	}
 

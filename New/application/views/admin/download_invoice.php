@@ -204,6 +204,7 @@
                                                 <tr>
                                                     <th class="name">Product Name</th>
                                                     <th class="quantity">Quantity</th>
+                                                    <th class="price">Optional</th>
                                                     <th class="price">Unit Price</th>
                                                     <th class="total">Total</th>
                                                 </tr>
@@ -237,6 +238,9 @@
                                                     
                                                     <td class="quantity">
                                                        <?php echo $v_order_info->product_sales_quantity;?>
+                                                    </td>
+                                                    <td class="quantity">
+                                                    <?php echo $v_order_info->product_optional;?>
                                                     </td>
                                                     <td class="price">
                                                         BDT <?php echo $v_order_info->product_price;?>
@@ -276,7 +280,11 @@
                                                     <td colspan="5"></td>
                                                     <td class="right numbers_total"><b>Grand Total :</b></td>
                                                     <td class="right numbers_total">
-                                                        BDT <?php echo $total + $shipping_cost; ?>
+                                                          <?php foreach ($orders_id as $orders_id)
+                                                        { ?>
+
+                                                            BDT <?php  echo $orders_id->  order_total + $shipping_cost; ?>
+                                                      <?php  }  ?>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -285,9 +293,11 @@
                                 </tr>
                             </tbody>
                        </table>
+
                     </div>
                 </div>
             </div>                       
         </div>                          
     </div>
+
 </body>

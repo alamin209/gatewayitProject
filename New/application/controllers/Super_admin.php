@@ -880,12 +880,16 @@ class Super_admin extends CI_Controller
 		$data['order_info'] = $this->Admin_model->select_order_info_by_id($order_id);
 		$customer_id = $data['order_info']->customer_id;
 		$shipping_id = $data['order_info']->shipping_id;
-		$data['customer_info'] = $this->Admin_model->select_customer_info_by_id($customer_id);
+        $data['showcharge']=$this->Admin_model->charge();
+        $data['customer_info'] = $this->Admin_model->select_customer_info_by_id($customer_id);
 		$customer_email = $data['customer_info']->email_address;
 		// echo '<pre>';
 		// print_r($data['customer_info']);exit;
 		$data['shipping_info'] = $this->Admin_model->select_shipping_info_by_id($shipping_id);
 		$data['order_details_info'] = $this->Admin_model->select_order_details_info_by_id($order_id);
+                          $data['orders_id']=$this->Admin_model->select_order_by_id($order_id);
+//                          print_r($data['orders_id']);
+//                          exit;
 
 		/*
         * Start Send Email
@@ -911,7 +915,7 @@ class Super_admin extends CI_Controller
 		$data['customer_info'] = $this->Admin_model->select_customer_info_by_id($customer_id);
 		$data['shipping_info'] = $this->Admin_model->select_shipping_info_by_id($shipping_id);
 		$data['order_details_info'] = $this->Admin_model->select_order_details_info_by_id($order_id);
-
+        $data['orders_id']=$this->Admin_model->select_order_by_id($order_id);
 		$this->load->helper('dompdf');
 		$view_file = $this->load->view('admin/download_invoice',$data,true);
 		$file_name = pdf_create($view_file,'inv-00'.$order_id);

@@ -7,6 +7,8 @@
 		</ol>
 	</div>
 	<div class="container">
+
+
 		<div class="row">
 			<section class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div id="content">
@@ -31,16 +33,18 @@
 									<?php
 								        $contents = $this->cart->contents();
 								        //print_r($contents);exit;
+
 								        foreach ($contents as $value){
 								        $id = $this->cart->total_items();
 								    ?>
 									<tr>
 										<td class="image" data-label="Image">
+
 											<?php
 												if(empty($value['image'])){
 													echo '--';
 												}else{ ?>
-												
+
 													<a href="">
 														<img src="<?= base_url($value['image']);?>" alt="<?= $value['name'];?>" title="<?= $value['name'];?>" height="80px" width="50px" />
 													</a>
@@ -50,7 +54,7 @@
 											if(empty($value['flaver'])){
 												echo '--';
 											}else{
-											
+
 												$flaver = $this->db->select('*')->from('tbl_flover_weight')->where('fw_id',$value['flaver'])->get()->row();
 
 												$weight = $this->db->select('*')->from('tbl_flover_weight')->where('fw_id',$value['weight'])->get()->row();
@@ -78,6 +82,7 @@
 
 
 										<td class="quantity" data-label="Quantity" >
+
 											<form action="<?= base_url('Add_cart/Update_cart/'.$value['rowid']);?>" method="post">
 												<input type="number" name="qty" value="<?php print $value['qty'];?>" >
 												&nbsp;
@@ -93,6 +98,7 @@
                                          <td class="optional" data-label="optional"  ><?= $extra->extra_name;?> </td>
                                         <input type="hidden" name="optional" value="><?php $extra->extra_name ?>" >
                                         <td class="price" data-label="Unit Price"  ><?= $value['price'];?> TK</td>
+
 										<td class="total" data-label="Total">
 											<?php
 												$TotalPrice = $value['price']*$value['qty'];
@@ -100,25 +106,36 @@
 											?>
 										</td>
 
+
+
 										<input type="hidden" name="id" value="<?php print $value['id'];?>">
 									</tr>
-									<?php } ?>					
+
+
+
+
+									<?php } ?>
 								</tbody>
 							</table>
 						</div>
-					  
+
+
+
+                        </div>
+
+
 						<div class="row">
-							<div  class="col-lg-9 col-md-9">  
+							<div  class="col-lg-9 col-md-9">
 								<div class="buttons clearfix">
 									<div class="center pull-left">
-										<?php 
+										<?php
 											$customer_id = $this->session->userdata('customer_id');
 											$shipping_id = $this->session->userdata('shipping_id');
 											if($customer_id != NULL && $shipping_id == NULL){ ?>
 												<a href="<?= base_url('Checkout/Shipping_form');?>" class="button btn btn-theme-default">
 													<button type="submit" class="btn btn-success"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Checkout</button>
 												</a>
-										<?php	}else if( $customer_id != NULL && $shipping_id != NULL){ ?> 
+										<?php	}else if( $customer_id != NULL && $shipping_id != NULL){ ?>
 												<a href="<?= base_url('Checkout/Payment_form');?>" class="button btn btn-theme-default">
 													<button type="submit" class="btn btn-success"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Checkout</button>
 												</a>
@@ -140,32 +157,88 @@
 										</a>
 									</div>
 								</div>
-							</div>  
-							
+							</div>
+
 							<div class="col-lg-3 col-md-3">
 								<div class="cart-total clearfix">
 									<table id="total">
-										
+
 										<tr>
+                                            <td class="right"><b>Charge</b></td>
 											<td class="right"><b>Grand Total:</b>&nbsp;</td>
-											<td class="right pull-right">
-												<?php
-													$g_total = $this->cart->total();
-													$sdata=array();
-													$sdata['g_total']=$g_total;
-													$this->session->set_userdata($sdata);
-													echo $g_total.' tk';
-												?>
-											</td>
-										</tr>
+
+                                            <td></td>
+
+
+
+
+
+                                            <td class="right pull-right">
+
+
+                                                <?php
+                                                $g_total = $this->cart->total();
+
+
+                                                $sdata=array();
+                                                $sdata['g_total']=$g_total;
+//
+//                                                print_r($sdata['g_total']);
+//                                                exit;
+
+
+                                                foreach ( $showcharge  as $c ) {
+                                                    $contentss = $this->cart->contents();
+                                                    //print_r($contents);exit;
+
+                                                    $totals=0;
+                                                    $last_key = end(array_keys($contentss));
+                                                    foreach ($contentss as $values) {
+
+                                                        $name = $this->db->select('*')->from('tbl_grocery')->where('prod_name', $values['name'])->get()->row();
+
+                                                        $names = $this->db->select('*')->from('tbl_foodcourt')->where('prod_name', $values['name'])->get()->row();
+
+
+                                                        if(!empty($name) ||!empty($names) ){
+
+                                                            $charges = $c->chrages;
+                                                            $this->session->set_userdata($sdata);
+                                                            $totals= $g_total + $charges;
+
+                                                        }else{
+                                                           $totals =$g_total;
+
+                                                        }
+
+
+
+
+
+                                                    }
+
+                                                }
+
+
+                                                ?>
+                                              <?php  echo $sdata['g_total']= $totals?>Tk
+
+<!--                                                <p style="color:red ; text-align:right"> *500tk   Charge will be added  </p>-->
+
+
+
+                                            </td>
+                                            <p style="color:red ; text-align:right"> *500tk   Charge will be added for Foodcourt & Grocery  </p>
+
+                                        </tr>
 
 									</table>
 								</div>
-							</div>     
+							</div>
 						</div>
-					</div>	
-				</div>  
-			</section> 
+					</div>
+				</div>
+			</section>
 		</div>
 
 	</div>
